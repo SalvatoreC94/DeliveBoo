@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->varchar('telephone');
-            $table->varchar('email');
+            $table->string('telephone');
+            $table->string('email');
             $table->decimal('total_price', 8, 2);
             $table->foreignId('restaurant_id') // inserisce la colonna della chiave esterna
                 ->constrained('restaurants') //crea la connessione con la tabella restaurants

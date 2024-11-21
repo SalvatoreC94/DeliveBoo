@@ -12,11 +12,11 @@ return new class extends Migration {
     {
         Schema::create('ordered_request', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('restaurant_id') // inserisce la colonna della chiave esterna
-                ->constrained('restaurants') //crea la connessione con la tabella restaurants
-                ->onDelete('cascade'); //cancellare i piatti se la tabella restaurants viene eliminata
+            $table->foreignId('order_id') // inserisce la colonna della chiave esterna
+                ->constrained()
+                ->onDelete('cascade'); //cancellare i piatti se la tabella orders viene eliminata
             $table->foreignId('dishes_id') // inserisce la colonna della chiave esterna
-                ->constrained('dishes') //crea la connessione con la tabella dishes
+                ->constrained() //crea la connessione con la tabella dishes
                 ->onDelete('cascade'); //cancellare i piatti se la tabella dishes viene eliminata
             $table->integer('quantity');
             $table->timestamps();

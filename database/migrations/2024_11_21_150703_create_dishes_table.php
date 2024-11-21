@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description');
             $table->decimal('price', 8, 2);
-            $table->varchar('image')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('visibility');
             $table->foreignId('restaurant_id') // inserisce la colonna della chiave esterna
                 ->constrained('restaurants') //crea la connessione con la tabella restaurants

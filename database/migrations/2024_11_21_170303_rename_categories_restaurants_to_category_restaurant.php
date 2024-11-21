@@ -10,14 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('restaurants', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('address');
-            $table->integer('partita_iva');
-            $table->string('image')->nullable();
-            $table->timestamps();
-        });
+        Schema::rename('categories_restaurants', 'category_restaurant');
     }
 
     /**
@@ -25,6 +18,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('restaurants');
+        Schema::rename('category_restaurant', 'categories_restaurants');
     }
 };
