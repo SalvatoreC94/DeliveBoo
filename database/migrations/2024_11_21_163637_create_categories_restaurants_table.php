@@ -10,13 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('dishes', function (Blueprint $table) {
+        Schema::create('categories_restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->decimal('price', 8, 2);
-            $table->varchar('image')->nullable();
-            $table->boolean('visibility');
+            $table->foreignId('categories_id') // inserisce la colonna della chiave esterna
+                ->constrained('categories') //crea la connessione con la tabella categories
+                ->onDelete('cascade'); //cancellare i piatti se la tabella categories viene eliminata
             $table->foreignId('restaurant_id') // inserisce la colonna della chiave esterna
                 ->constrained('restaurants') //crea la connessione con la tabella restaurants
                 ->onDelete('cascade'); //cancellare i piatti se la tabella restaurants viene eliminata
@@ -29,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('dishes');
+        Schema::dropIfExists('categories_restaurants');
     }
 };
