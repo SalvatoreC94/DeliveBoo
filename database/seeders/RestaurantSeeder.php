@@ -16,19 +16,18 @@ class RestaurantSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints( function() {
+        Schema::withoutForeignKeyConstraints(function () {
             Restaurant::truncate();
         });
 
-        for ($i=0; $i< 10; $i++) { 
-            
-            Restaurant::create([
-                define('email', fake()->sentence()),
+        for ($i = 0; $i < 10; $i++) {
 
-                'name' => fake()->name(),
-                'email' => 'email',
-                'email_verified_at' => 'email',
-                'password' => fake()->randomDigit(6),
+            Restaurant::create([
+                'name' => fake()->company(),
+                'address' => fake()->address(),
+                'partita_iva' => fake()->randomNumber(9, true),
+                'image' => fake()->imageUrl(640, 480, 'food', true),
+                'user_id' => rand(1, 10),
             ]);
         }
     }

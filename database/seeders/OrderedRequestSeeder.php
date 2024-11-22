@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Schema;
 
 //Models
 use App\Models\OrderedRequest;
+use App\Models\Dish;
+use App\Models\Order;
+
 
 class OrderedRequestSeeder extends Seeder
 {
@@ -16,18 +19,16 @@ class OrderedRequestSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints( function() {
+        Schema::withoutForeignKeyConstraints(function () {
             OrderedRequest::truncate();
         });
 
-        for ($i=0; $i< 10; $i++) { 
-            
-            OrderedRequest::create([
-                // 'user_id' => auth()->id(),
+        for ($i = 0; $i < 10; $i++) {
 
-                'order_id' => fake()->sentence(),
-                'dishes_id' => fake()->sentence(),
-                'quantity' => fake()->randomDigit(2),
+            OrderedRequest::create([
+                'order_id' => Order::inRandomOrder()->first()->id, // ID di un ordine esistente
+                'dish_id' => Dish::inRandomOrder()->first()->id,   // ID di un piatto esistente
+                'quantity' => fake()->numberBetween(1, 10),        // Quantità casuale
             ]);
         }
     }

@@ -10,16 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('dishes', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->decimal('price', 8, 2);
-            $table->string('image')->nullable();
-            $table->boolean('visibility');
-            $table->foreignId('restaurant_id') // inserisce la colonna della chiave esterna
-                ->constrained('restaurants') //crea la connessione con la tabella restaurants
-                ->onDelete('cascade'); //cancellare i piatti se la tabella restaurants viene eliminata
             $table->timestamps();
         });
     }
