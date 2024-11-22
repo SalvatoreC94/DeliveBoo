@@ -7,9 +7,9 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 //Models
-use App\Models\Restaurant;
+use App\Models\Dish;
 
-class RestaurantSeeder extends Seeder
+class DishSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,18 +17,19 @@ class RestaurantSeeder extends Seeder
     public function run(): void
     {
         Schema::withoutForeignKeyConstraints( function() {
-            Restaurant::truncate();
+            Dish::truncate();
         });
 
         for ($i=0; $i< 10; $i++) { 
             
-            Restaurant::create([
-                define('email', fake()->sentence()),
+            Dish::create([
 
                 'name' => fake()->name(),
-                'email' => 'email',
-                'email_verified_at' => 'email',
-                'password' => fake()->randomDigit(6),
+                'description' => fake()->sentence(),
+                'price' => fake()->name(),
+                'image' => fake()->randomDigit(2),
+                'visibility' => true,
+                'restaurant_id' => auth()->id(),
             ]);
         }
     }
