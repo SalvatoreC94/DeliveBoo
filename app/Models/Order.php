@@ -24,4 +24,10 @@ class Order extends Model
     {
         return $this->belongsToMany(Dish::class, 'ordered_request')->withPivot('quantity');
     }
+
+    // Relazione uno a molti con ordered request
+    public function orderedrequest()
+    {
+        return $this->hasMany('orderedrequest');
+    }
 }
