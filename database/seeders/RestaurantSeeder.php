@@ -23,12 +23,12 @@ class RestaurantSeeder extends Seeder
         for ($i=0; $i< 10; $i++) { 
             
             Restaurant::create([
-                define('email', fake()->sentence()),
 
                 'name' => fake()->name(),
-                'email' => 'email',
-                'email_verified_at' => 'email',
-                'password' => fake()->randomDigit(6),
+                'user_id' => auth()->id(),
+                'address' => fake()->sentence(),
+                'partita_iva' => fake()->randomDigit(11),
+                'image' => fake()->sentence(),
             ]);
         }
     }
