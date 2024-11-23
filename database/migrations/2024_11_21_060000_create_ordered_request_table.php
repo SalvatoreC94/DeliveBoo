@@ -26,13 +26,10 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table('ordered_request', function (Blueprint $table) {
-            if (Schema::hasColumn('ordered_request', 'dish_id')) {
-                $table->dropForeign(['dish_id']);
-                $table->dropColumn('dish_id');
-            }
-        });
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('ordered_request');
+        Schema::enableForeignKeyConstraints();
     }
 };

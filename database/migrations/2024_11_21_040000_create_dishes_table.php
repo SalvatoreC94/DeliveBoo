@@ -10,17 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description');
             $table->decimal('price', 8, 2);
-            $table->string('image')->nullable();
+            $table->text('image')->nullable();
             $table->boolean('visibility');
-            $table->foreignId('restaurant_id') // inserisce la colonna della chiave esterna
-                ->constrained('restaurants') //crea la connessione con la tabella restaurants
-                ->onDelete('cascade'); //cancellare i piatti se la tabella restaurants viene eliminata
+            $table->foreignId('restaurant_id')
+                ->constrained('restaurants')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +29,17 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories_restaurants');
+        // Verifica se la tabella 'ordered_request' esiste
+        if (Schema::hasTable('ordered_request')) {
+            Schema::table('ordered_request', function (Blueprint $table) {
+                if (Schema::hasColumn('ordered_request', 'dish_id')) {
+                    $table->dropForeign(['dish_id']); // Rimuove il vincolo
+                }
+            });
+        }
+
+        // Elimina la tabella 'dishes'
+        Schema::dropIfExists('dishes');
     }
 };
+

@@ -11,17 +11,28 @@ use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        Category::truncate();
-        $categories = config('categories');
+        // Disabilita i vincoli di chiave esterna
+        Schema::disableForeignKeyConstraints();
 
-        foreach($categories as $singleCategory){
-            $category = new Category();
-            $category->name = $singleCategory['name'];
-        }
+        // Trunca la tabella
+        Category::truncate();
+
+        // Ripristina i vincoli di chiave esterna
+        Schema::enableForeignKeyConstraints();
+
+        // Inserisci i dati
+        $categories = [
+            ['name' => 'Italiano'],
+            ['name' => 'Giapponese'],
+            ['name' => 'Messicano'],
+            ['name' => 'Cinese'],
+            ['name' => 'Indiano'],
+            ['name' => 'Francese'],
+        ];
+
+        Category::insert($categories);
+
     }
 }

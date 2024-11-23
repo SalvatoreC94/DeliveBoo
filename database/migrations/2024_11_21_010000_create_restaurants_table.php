@@ -28,8 +28,21 @@ return new class extends Migration {
      */
     public function down(): void
     {
+        if (Schema::hasTable('dishes')) {
+            Schema::table('dishes', function (Blueprint $table) {
+                $table->dropForeign(['restaurant_id']);
+            });
+        }
+
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+                $table->dropForeign(['restaurant_id']);
+            });
+        }
+
         Schema::dropIfExists('restaurants');
     }
+
 
 
 };

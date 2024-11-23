@@ -17,9 +17,10 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints(function () {
-            Order::truncate();
-        });
+        Schema::disableForeignKeyConstraints();
+        Order::truncate();
+        Schema::enableForeignKeyConstraints();
+
 
         for ($i = 0; $i < 10; $i++) {
 

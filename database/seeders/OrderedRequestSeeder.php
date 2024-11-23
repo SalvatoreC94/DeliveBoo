@@ -19,16 +19,17 @@ class OrderedRequestSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints(function () {
-            OrderedRequest::truncate();
-        });
+        Schema::disableForeignKeyConstraints();
+        OrderedRequest::truncate();
+        Schema::enableForeignKeyConstraints();
+
 
         for ($i = 0; $i < 10; $i++) {
 
             OrderedRequest::create([
-                'order_id' => Order::inRandomOrder()->first()->id, // ID di un ordine esistente
-                'dish_id' => Dish::inRandomOrder()->first()->id,   // ID di un piatto esistente
-                'quantity' => fake()->numberBetween(1, 10),        // Quantità casuale
+                'order_id' => Order::inRandomOrder()->first()->id,
+                'dish_id' => Dish::inRandomOrder()->first()->id,
+                'quantity' => fake()->numberBetween(1, 10),
             ]);
         }
     }

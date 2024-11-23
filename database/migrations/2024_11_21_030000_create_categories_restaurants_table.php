@@ -28,6 +28,19 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        if (Schema::hasTable('categories_restaurants')) {
+            Schema::table('categories_restaurants', function (Blueprint $table) {
+                if (Schema::hasColumn('categories_restaurants', 'category_id')) {
+                    $table->dropForeign(['category_id']);
+                }
+                if (Schema::hasColumn('categories_restaurants', 'restaurant_id')) {
+                    $table->dropForeign(['restaurant_id']);
+                }
+            });
+
+            Schema::dropIfExists('categories_restaurants');
+        }
     }
+
+
 };

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Schema;
 
 //Models
 use App\Models\Restaurant;
+use App\Models\User;
+
 
 class RestaurantSeeder extends Seeder
 {
@@ -16,18 +18,20 @@ class RestaurantSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints(function () {
-            Restaurant::truncate();
-        });
+        Schema::disableForeignKeyConstraints();
+        Restaurant::truncate();
+        Schema::enableForeignKeyConstraints();
+
 
         $restaurants = config('restaurants');
 
-        foreach($restaurants as $singleRestaurant){
+        foreach ($restaurants as $singleRestaurant) {
             $restaurant = new Restaurant();
             $restaurant->name = $singleRestaurant['name'];
             $restaurant->address = $singleRestaurant['address'];
             $restaurant->partita_iva = $singleRestaurant['partita_iva'];
             $restaurant->image = $singleRestaurant['image'];
+            $restaurant->user_id = User::inRandomOrder()->first()->id;
             $restaurant->save();
         }
     }
