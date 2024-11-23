@@ -16,15 +16,12 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints( function() {
-            Category::truncate();
-        });
+        Category::truncate();
+        $categories = config('categories');
 
-        for ($i=0; $i< 10; $i++) { 
-            
-            Category::create([
-                'name' => fake()->sentence(),
-            ]);
+        foreach($categories as $singleCategory){
+            $category = new Category();
+            $category->name = $singleCategory['name'];
         }
     }
 }
