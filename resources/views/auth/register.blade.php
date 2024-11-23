@@ -64,14 +64,9 @@
                 <label for="cuisine_type" class="form-label">Tipologia di Cucina</label>
                 <select name="cuisine_type" id="cuisine_type" class="form-select" required>
                     <option value="">Seleziona una tipologia</option>
-                    <option value="italiano">Italiano</option>
-                    <option value="giapponese">Giapponese</option>
-                    <option value="cinese">Cinese</option>
-                    <option value="messicano">Messicano</option>
-                    <option value="indiano">Indiano</option>
-                    <option value="pesce">Pesce</option>
-                    <option value="carne">Carne</option>
-                    <option value="pizza">Pizza</option>
+                    @foreach (config('categories') as $category)
+                        <option value="{{ $category['name'] }}">{{ $category['name'] }}</option>
+                    @endforeach
                 </select>
                 <div class="invalid-feedback">Seleziona una tipologia di cucina.</div>
             </div>
