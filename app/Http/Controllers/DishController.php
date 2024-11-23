@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dish;
 use Illuminate\Http\Request;
+
+//Models
+use App\Models\Dish;
+use App\Models\Restaurant;
 
 class DishController extends Controller
 {
@@ -12,7 +15,9 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $dishes = Dish::get();
+
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
@@ -20,7 +25,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('dishes.create');
     }
 
     /**
@@ -28,7 +33,20 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'price' => 'required|string|max:255',
+            'image' => 'nullable|string',
+            'visibility' => 'nullable|string',
+        ]);
+
+        // Associa l'utente autenticato
+        $dish = new Dish($request->all());
+        $dish->restaurant_id = auth()->id();
+        $dish->save();
+
+        return redirect()->route('dishes.index')->with('success', 'Ristorante creato con successo!', ['dish' => $dish->id]);
     }
 
     /**
@@ -36,7 +54,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        return view('dishes.show', compact('dish'));
     }
 
     /**
