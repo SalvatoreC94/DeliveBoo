@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
 
             User::create([
-                'username' => fake()->userName(),
+                'name' => fake()->userName(),
                 'email' => fake()->safeEmail(),
                 'password' => bcrypt('password'),
             ]);

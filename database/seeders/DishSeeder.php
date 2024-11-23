@@ -21,7 +21,7 @@ class DishSeeder extends Seeder
         $dishes = config('dishes');
 
         foreach($dishes as $singleDish){
-            $dish = new Dishes();
+            $dish = new Dish();
             $dish->name = $singleDish['name'];
             $dish->description = $singleDish['description'];
             $dish->price = $singleDish['price'];

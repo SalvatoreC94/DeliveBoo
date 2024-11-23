@@ -17,7 +17,7 @@ return new class extends Migration {
                 ->constrained('users')
                 ->onDelete('cascade');
             $table->string('address');
-            $table->integer('partita_iva');
+            $table->string('partita_iva');
             $table->string('image')->nullable();
             $table->timestamps();
         });
