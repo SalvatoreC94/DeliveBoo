@@ -1,49 +1,92 @@
+<!-- resources/views/auth/register.blade.php -->
+
 @extends('layouts.guest')
 
 @section('main-content')
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+    <div class="container mt-5">
+        <h2 class="mb-4">Registrazione Ristoratore</h2>
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data"
+            onsubmit="return validateRegistrationForm()">
+            @csrf
 
-        <!-- Name -->
-        <div>
-            <label for="name">
-                Name
-            </label>
-            <input type="text" id="name" name="name">
-        </div>
+            <!-- Nome Utente -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome Utente</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+                <div class="invalid-feedback">Il nome utente è obbligatorio.</div>
+            </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <label for="email">
-                Email
-            </label>
-            <input type="email" id="email" name="email">
-        </div>
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Inserisci un indirizzo email valido.</div>
+            </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <label for="password">
-                Password
-            </label>
-            <input type="password" id="password" name="password">
-        </div>
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="password" required>
+                <div class="invalid-feedback">La password è obbligatoria.</div>
+            </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <label for="password_confirmation">
-                Conferma Password
-            </label>
-            <input type="password" id="password_confirmation" name="password_confirmation">
-        </div>
+            <!-- Conferma Password -->
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Conferma Password</label>
+                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation"
+                    required>
+                <div class="invalid-feedback">La conferma della password è obbligatoria.</div>
+            </div>
 
-        <div>
-            <a href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+            <!-- Nome Ristorante -->
+            <div class="mb-3">
+                <label for="restaurant_name" class="form-label">Nome Ristorante</label>
+                <input type="text" name="restaurant_name" class="form-control" id="restaurant_name" required>
+                <div class="invalid-feedback">Il nome del ristorante è obbligatorio.</div>
+            </div>
 
-            <button type="submit">
-                Register
-            </button>
-        </div>
-    </form>
+            <!-- Indirizzo Ristorante -->
+            <div class="mb-3">
+                <label for="address" class="form-label">Indirizzo</label>
+                <input type="text" name="address" class="form-control" id="address" required>
+                <div class="invalid-feedback">L'indirizzo è obbligatorio.</div>
+            </div>
+
+            <!-- Partita IVA -->
+            <div class="mb-3">
+                <label for="partita_iva" class="form-label">Partita IVA</label>
+                <input type="text" name="partita_iva" class="form-control" id="partita_iva" required>
+                <div class="invalid-feedback">La partita IVA è obbligatoria.</div>
+            </div>
+
+            <!-- Tipologia di Cucina -->
+            <div class="mb-3">
+                <label for="cuisine_type" class="form-label">Tipologia di Cucina</label>
+                <select name="cuisine_type" id="cuisine_type" class="form-select" required>
+                    <option value="">Seleziona una tipologia</option>
+                    <option value="italiano">Italiano</option>
+                    <option value="giapponese">Giapponese</option>
+                    <option value="cinese">Cinese</option>
+                    <option value="messicano">Messicano</option>
+                    <option value="indiano">Indiano</option>
+                    <option value="pesce">Pesce</option>
+                    <option value="carne">Carne</option>
+                    <option value="pizza">Pizza</option>
+                </select>
+                <div class="invalid-feedback">Seleziona una tipologia di cucina.</div>
+            </div>
+
+            <!-- Immagine Ristorante (opzionale) -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Immagine del Ristorante (opzionale)</label>
+                <input type="file" name="image" class="form-control" id="image">
+            </div>
+
+            <!-- Pulsante di Registrazione -->
+            <button type="submit" class="btn btn-primary">Registrati</button>
+        </form>
+
+        <!-- Link al Login -->
+        <p class="mt-3">Hai già un account? <a href="{{ route('login') }}">Accedi qui</a></p>
+    </div>
 @endsection
