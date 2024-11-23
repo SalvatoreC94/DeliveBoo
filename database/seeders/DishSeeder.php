@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Schema;
 
 //Models
 use App\Models\Dish;
-use App\Models\Restaurant;
 
 class DishSeeder extends Seeder
 {
@@ -17,20 +16,19 @@ class DishSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints(function () {
-            Dish::truncate();
-        });
+        Dish::truncate();
+        
+        $dishes = config('dishes');
 
-        for ($i = 0; $i < 10; $i++) {
-
-            Dish::create([
-                'name' => fake()->word(), // Nome semplice
-                'description' => fake()->sentence(), // Frase descrittiva
-                'price' => fake()->randomFloat(2, 5, 50), // Prezzo casuale tra 5 e 50 con 2 decimali
-                'image' => fake()->imageUrl(640, 480, 'food', true), // URL di un'immagine fittizia
-                'visibility' => true, // Sempre visibile
-                'restaurant_id' => Restaurant::inRandomOrder()->first()->id, // Associa a un ristorante esistente
-            ]);
+        foreach($dishes as $singleDish){
+            $dish = new Dishes();
+            $dish->name = $singleDish['name'];
+            $dish->description = $singleDish['description'];
+            $dish->price = $singleDish['price'];
+            $dish->image = $singleDish['image'];
+            $dish->visibility = $singleDish['visibility'];
+            $dish->restaurant_id = $singleDish['restaurant_id'];
+            $dish->save();
         }
     }
 }

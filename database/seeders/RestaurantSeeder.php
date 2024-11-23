@@ -20,15 +20,15 @@ class RestaurantSeeder extends Seeder
             Restaurant::truncate();
         });
 
-        for ($i = 0; $i < 10; $i++) {
+        $restaurants = config('restaurants');
 
-            Restaurant::create([
-                'name' => fake()->company(),
-                'address' => fake()->address(),
-                'partita_iva' => fake()->randomNumber(9, true),
-                'image' => fake()->imageUrl(640, 480, 'food', true),
-                'user_id' => rand(1, 10),
-            ]);
+        foreach($restaurants as $singleRestaurant){
+            $restaurant = new Restaurant();
+            $restaurant->name = $singleRestaurant['name'];
+            $restaurant->address = $singleRestaurant['address'];
+            $restaurant->partita_iva = $singleRestaurant['partita_iva'];
+            $restaurant->image = $singleRestaurant['image'];
+            $restaurant->save();
         }
     }
 }
