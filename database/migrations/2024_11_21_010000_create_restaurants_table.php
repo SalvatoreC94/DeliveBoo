@@ -13,7 +13,9 @@ return new class extends Migration {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('usre_id')->null;
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->onDelete('cascade');
             $table->string('address');
             $table->integer('partita_iva');
             $table->string('image')->nullable();

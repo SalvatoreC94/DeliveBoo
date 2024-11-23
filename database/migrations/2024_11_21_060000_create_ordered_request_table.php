@@ -26,8 +26,13 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('ordered_request');
+        Schema::table('ordered_request', function (Blueprint $table) {
+            if (Schema::hasColumn('ordered_request', 'dish_id')) {
+                $table->dropForeign(['dish_id']);
+                $table->dropColumn('dish_id');
+            }
+        });
     }
 };
