@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Schema;
 
 //Models
 use App\Models\Order;
+use App\Models\Restaurant;
 
 class OrderSeeder extends Seeder
 {
@@ -16,20 +17,20 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::withoutForeignKeyConstraints( function() {
+        Schema::withoutForeignKeyConstraints(function () {
             Order::truncate();
         });
 
-        for ($i=0; $i< 10; $i++) { 
-            
+        for ($i = 0; $i < 10; $i++) {
+
             Order::create([
                 // 'user_id' => auth()->id(),
 
                 'name' => fake()->name(),
                 'telephone' => fake()->sentence(),
-                'email' => fake()->randomDigit(),
-                'total_price' => fake()->sentence(),
-                'restaurant_id' => fake()->sentence(),
+                'email' => fake()->email(),
+                'total_price' => fake()->randomFloat(2, 10, 500),
+                'restaurant_id' => Restaurant::inRandomOrder()->first()->id,
             ]);
         }
     }

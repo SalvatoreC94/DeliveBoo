@@ -10,7 +10,11 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'address', 'partita_iva', 'image'
+        'name',
+        'address',
+        'partita_iva',
+        'image',
+        'user_id'
     ];
 
     // Relazione uno a molti con i piatti

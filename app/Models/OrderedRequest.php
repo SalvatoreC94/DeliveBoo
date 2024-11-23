@@ -12,7 +12,9 @@ class OrderedRequest extends Model
     protected $table = 'ordered_request';
 
     protected $fillable = [
-        'order_id', 'dishes_id', 'quantity'
+        'order_id',
+        'dish_id',
+        'quantity'
     ];
 
     // Relazione molti a uno con l'ordine
