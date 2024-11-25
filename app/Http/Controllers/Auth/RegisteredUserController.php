@@ -4,48 +4,77 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Show the registration form.
+     *
+     * @return \Illuminate\View\View
      */
-    public function create(): View
+    public function showRegistrationForm()
     {
         return view('auth.register');
     }
 
     /**
-     * Handle an incoming registration request.
+     * Show the registration form (alias for create).
      *
-     * @throws \Illuminate\Validation\ValidationException
+     * @return \Illuminate\View\View
      */
-    public function store(Request $request): RedirectResponse
+    public function create()
     {
+        return $this->showRegistrationForm();
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
+    {
+        // Validazione dei dati del form
         $request->validate([
-            'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'restaurant_name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'partita_iva' => 'required|digits:11',
+            'cuisine_type' => 'required|array',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        // Creazione dell'utente
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        // Creazione del ristorante associato all'utente
+        $restaurant = new Restaurant([
+            'name' => $request->restaurant_name,
+            'address' => $request->address,
+            'partita_iva' => $request->partita_iva,
+            'image' => $request->hasFile('image') ? $request->file('image')->store('restaurants', 'public') : null,
+        ]);
+        $user->restaurant()->save($restaurant);
 
+        // Associa la tipologia di cucina
+        $restaurant->categories()->attach($request->cuisine_type);
+
+        // Effettua il login dell'utente
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // Redireziona alla dashboard del ristorante
+        return redirect()->route('restaurant.dashboard');
     }
 }
