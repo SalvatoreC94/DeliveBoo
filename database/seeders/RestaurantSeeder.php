@@ -7,8 +7,9 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 //Models
-use App\Models\Restaurant;
-use App\Models\User;
+use App\Models\{
+    Restaurant, User
+};
 
 
 class RestaurantSeeder extends Seeder
@@ -31,8 +32,17 @@ class RestaurantSeeder extends Seeder
             $restaurant->address = $singleRestaurant['address'];
             $restaurant->partita_iva = $singleRestaurant['partita_iva'];
             $restaurant->image = $singleRestaurant['image'];
-            $restaurant->user_id = User::inRandomOrder()->first()->id;
+            // Ottieni il primo utente disponibile
+            $user = User::first();
+
+            // Associa il ristorante all'utente
+            if ($user) {
+                $restaurant->user_id = $user->id;
+                $user->restaurant_id = $restaurant->id;
+                $user->save();
+            }
+
             $restaurant->save();
-        }
+        };
     }
 }

@@ -12,10 +12,15 @@ return new class extends Migration {
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id')->nullable(); // Chiave esterna
+
+            $table->foreign('user_id') // Definizione della relazione
+                  ->references('id')   // Colonna nella tabella `users`
+                  ->on('users')        // Nome della tabella di riferimento
+                  ->onDelete('cascade'); // Comportamento in caso di eliminazione
+
             $table->string('name');
-            $table->foreignId('user_id')
-                ->constrained('users')
-                ->onDelete('cascade');
             $table->string('address');
             $table->string('partita_iva');
             $table->string('image')->nullable();
