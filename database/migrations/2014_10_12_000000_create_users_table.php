@@ -12,6 +12,13 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            
+            // Relazione One to One con restaurants
+            $table->unsignedBigInteger('restaurants_id');
+            $table->foreign('restaurants_id')
+                ->references('restaurants')
+                ->on('id');
+
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
