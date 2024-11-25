@@ -26,8 +26,8 @@
             <!-- Password -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" required>
-                <div class="invalid-feedback">La password è obbligatoria.</div>
+                <input type="password" name="password" class="form-control" id="password" required minlength="6">
+                <div class="invalid-feedback">La password deve essere di almeno 6 caratteri.</div>
             </div>
 
             <!-- Conferma Password -->
@@ -35,7 +35,8 @@
                 <label for="password_confirmation" class="form-label">Conferma Password</label>
                 <input type="password" name="password_confirmation" class="form-control" id="password_confirmation"
                     required>
-                <div class="invalid-feedback">La conferma della password è obbligatoria.</div>
+                <div class="invalid-feedback">La conferma della password è obbligatoria e deve corrispondere alla password.
+                </div>
             </div>
 
             <!-- Nome Ristorante -->
@@ -55,8 +56,8 @@
             <!-- Partita IVA -->
             <div class="mb-3">
                 <label for="partita_iva" class="form-label">Partita IVA</label>
-                <input type="text" name="partita_iva" class="form-control" id="partita_iva" required>
-                <div class="invalid-feedback">La partita IVA è obbligatoria.</div>
+                <input type="text" name="partita_iva" class="form-control" id="partita_iva" required pattern="\d{11}">
+                <div class="invalid-feedback">La partita IVA deve essere composta da 11 cifre.</div>
             </div>
 
             <!-- Tipologia di Cucina -->
@@ -74,7 +75,7 @@
             <!-- Immagine Ristorante (opzionale) -->
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine del Ristorante (opzionale)</label>
-                <input type="file" name="image" class="form-control" id="image">
+                <input type="file" name="image" class="form-control" id="image" accept="image/*">
             </div>
 
             <!-- Pulsante di Registrazione -->
@@ -84,4 +85,32 @@
         <!-- Link al Login -->
         <p class="mt-3">Hai già un account? <a href="{{ route('login') }}">Accedi qui</a></p>
     </div>
+
+    <script>
+        function validateRegistrationForm() {
+            let isValid = true;
+            const password = document.getElementById('password');
+            const passwordConfirmation = document.getElementById('password_confirmation');
+
+            // Validazione password e conferma password
+            if (password.value !== passwordConfirmation.value) {
+                passwordConfirmation.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                passwordConfirmation.classList.remove('is-invalid');
+            }
+
+            // Controllo tutti i campi obbligatori
+            document.querySelectorAll('input[required], select[required]').forEach(function(field) {
+                if (!field.value) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                }
+            });
+
+            return isValid;
+        }
+    </script>
 @endsection

@@ -26,7 +26,7 @@ class Restaurant extends Model
     // Relazione molti a molti con le categorie
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_restaurant');
+        return $this->belongsToMany(Category::class, 'categories_restaurants');
     }
 
     // Relazione uno a molti con gli ordini
@@ -35,3 +35,4 @@ class Restaurant extends Model
         return $this->hasMany(Order::class);
     }
 }
+
