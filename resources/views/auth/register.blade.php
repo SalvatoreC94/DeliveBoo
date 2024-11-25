@@ -62,9 +62,9 @@
 
             <!-- Tipologia di Cucina -->
             <div class="mb-3">
-                <label for="cuisine_type" class="form-label">Tipologia di Cucina</label>
-                <select name="cuisine_type" id="cuisine_type" class="form-select" required>
-                    <option value="">Seleziona una tipologia</option>
+                <label for="categories" class="form-label">Tipologia di Cucina</label>
+                <select name="categories" id="categories" class="form-select" required>
+                    <option value="">Seleziona una tipologia di ristorante</option>
                     @foreach (config('categories') as $category)
                         <option value="{{ $category['name'] }}">{{ $category['name'] }}</option>
                     @endforeach
