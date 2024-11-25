@@ -13,7 +13,7 @@ return [
     [
         "restaurant_id" => 0,
         "name" => "Pollo al Limone",
-        "description" => "Pollo fritto con salsa dolce al limone, accompagnato da riso bianco.",
+        "description" => "Pollo fritto con salsa dolce al limone, accompagnato da riso.",
         "price" => "€9,00",
         "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fricette.giallozafferano.it%2FPollo-al-limone.html&psig=AOvVaw3QHPl5w4sXwbIBOppoq0Jn&ust=1732370771151000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCfkMWQ8IkDFQAAAAAdAAAAABAE",
         "visibility" => true,
