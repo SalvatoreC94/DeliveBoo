@@ -41,8 +41,8 @@
 
             <!-- Nome Ristorante -->
             <div class="mb-3">
-                <label for="restaurant_name" class="form-label">Nome Ristorante</label>
-                <input type="text" name="restaurant_name" class="form-control" id="restaurant_name" required>
+                <label for="name" class="form-label">Nome Ristorante</label>
+                <input type="text" name="name" class="form-control" id="name" required>
                 <div class="invalid-feedback">Il nome del ristorante è obbligatorio.</div>
             </div>
 

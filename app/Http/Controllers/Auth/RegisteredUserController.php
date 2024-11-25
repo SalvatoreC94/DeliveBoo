@@ -74,6 +74,9 @@ class RegisteredUserController extends Controller
         // Effettua il login dell'utente
         Auth::login($user);
 
+        // Aggiungi il flash message
+        $request->session()->flash('success', 'Utente registrato con successo!');
+
         // Redireziona alla dashboard del ristorante
         return redirect()->route('restaurant.dashboard');
     }
