@@ -21,13 +21,7 @@
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link 2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link 3</a>
+                                <a class="nav-link" href="{{ route('dishes.index') }}">Dishes</a>
                             </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">

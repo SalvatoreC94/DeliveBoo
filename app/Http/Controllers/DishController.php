@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 //Models
 use App\Models\Dish;
@@ -17,7 +18,7 @@ class DishController extends Controller
     {
         $dishes = Dish::get();
 
-        return view('admin.dishes.index', compact('dishes'));
+        return view('dishes.index', compact('dishes'));
     }
 
     /**
@@ -42,11 +43,21 @@ class DishController extends Controller
         ]);
 
         // Associa l'utente autenticato
-        $dish = new Dish($request->all());
-        $dish->restaurant_id = auth()->id();
-        $dish->save();
+        $newDish = new Dish($request->all());
+        // $newDish->Storage::put('uploads', $newDish['image']);
+        $newDish->restaurant_id = auth()->id();
+        $newDish->save();
 
-        return redirect()->route('dishes.index')->with('success', 'Ristorante creato con successo!', ['dish' => $dish->id]);
+        
+        // $data = $request->all();
+        // $newDish = new Dish;
+        // $newDish->name = $data['name'];
+        // $newDish->description = $data['description'];
+        // $newDish->price = $data['price'];
+        // $newDish->image = $data['image'];
+        // $newDish->save();
+
+        return redirect()->route('dishes.show', $newDish->id);
     }
 
     /**
@@ -62,7 +73,7 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        return view('dishes.edit', compact('dish'));
     }
 
     /**
@@ -70,7 +81,30 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+        $data = $request->all();
+
+        if (isset($data['image'])) {
+            $data = $request->all();
+        
+            $newDish = new Dish;
+            $newDish->image = Storage::put('uploads', $data['image']);
+            // $newDish->image = Storage::disk('public')->put('uploads', $data['image']);
+            
+            $newDish = new Dish($request->all());
+            $newDish->restaurant_id = auth()->id();
+            $newDish->save();
+
+            if($dish->image) {
+                Storage::delete($dish->image);
+                $dish->image = null;
+            }
+            // $newdish->image = Storage::put('uploads', $data['image']);
+            // $newdish->save();
+        }
+
+        $dish->update($data);
+
+        return redirect()->route('dishes.show', $dish->id);
     }
 
     /**
@@ -78,6 +112,8 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+
+        return redirect()->route('dishes.index');
     }
 }

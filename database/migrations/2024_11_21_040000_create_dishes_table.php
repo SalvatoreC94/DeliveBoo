@@ -16,10 +16,11 @@ return new class extends Migration {
             $table->text('description');
             $table->decimal('price', 8, 2);
             $table->text('image')->nullable();
-            $table->boolean('visibility');
+            $table->boolean('visibility')->nullable();
             $table->foreignId('restaurant_id')
                 ->constrained('restaurants')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+                ->nullable();
             $table->timestamps();
         });
     }
