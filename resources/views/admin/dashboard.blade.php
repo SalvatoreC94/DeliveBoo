@@ -3,7 +3,8 @@
 @section('page-title', 'Dashboard')
 
 @section('main-content')
-    <div class="row">
+<div class="container vh-100">
+    <div class="row p-5">
         <div class="col">
             <div class="card">
                 <div class="card-body">
@@ -16,4 +17,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
