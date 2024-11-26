@@ -10,7 +10,13 @@ class Dish extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'price', 'image', 'visibility', 'restaurant_id'
+        'name',
+        'description',
+        'price',
+        'image',
+        'visibility',
+        'restaurant_id',
+        'category_id',
     ];
 
     // Relazione molti a uno con il ristorante
@@ -24,4 +30,9 @@ class Dish extends Model
     {
         return $this->belongsToMany(Order::class, 'ordered_request')->withPivot('quantity');
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 }

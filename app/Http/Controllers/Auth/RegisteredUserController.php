@@ -6,27 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Restaurant;
 use App\Models\Category;
+use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Show the registration form.
-     */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $categories = Category::all();
+        return view('auth.register', compact('categories'));
     }
 
-    /**
-     * Handle a registration request for the application.
-     */
     public function store(Request $request)
     {
-        // Validazione dei dati del form
         $request->validate([
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -39,40 +33,52 @@ class RegisteredUserController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Creazione dell'utente
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        // Gestione immagine
         $imagePath = $request->hasFile('image')
             ? $request->file('image')->store('restaurants', 'public')
             : null;
 
-        // Creazione del ristorante associato all'utente
-        $restaurant = new Restaurant([
+        $restaurant = Restaurant::create([
             'name' => $request->restaurant_name,
             'address' => $request->address,
             'partita_iva' => $request->partita_iva,
             'image' => $imagePath,
+            'user_id' => $user->id,
         ]);
-        $user->restaurant()->save($restaurant);
 
-        // Associazione delle categorie
-        if ($request->has('cuisine_type')) {
-            $validCategories = Category::whereIn('id', $request->cuisine_type)->pluck('id')->toArray();
-            $restaurant->categories()->attach($validCategories);
-        }
+        $restaurant->categories()->sync($request->cuisine_type);
 
-        // Effettua il login dell'utente
+        // Popola i piatti dal config
+        $this->populateDishesFromConfig($restaurant, $request->cuisine_type);
+
         Auth::login($user);
 
-        // Flash message di successo
-        $request->session()->flash('success', 'Utente registrato con successo!');
+        return redirect()->route('admin.dashboard')->with('success', 'Registrazione completata con successo!');
+    }
 
-        // Redireziona alla dashboard
-        return redirect()->route('restaurant.dashboard');
+    private function populateDishesFromConfig(Restaurant $restaurant, array $categoryIds)
+    {
+        $configDishes = config('dishes');
+
+        $filteredDishes = array_filter($configDishes, function ($dish) use ($categoryIds) {
+            return in_array($dish['category_id'], $categoryIds);
+        });
+
+        foreach ($filteredDishes as $dish) {
+            Dish::create([
+                'name' => $dish['name'],
+                'description' => $dish['description'],
+                'price' => $dish['price'],
+                'image' => $dish['image'],
+                'visibility' => $dish['visibility'],
+                'restaurant_id' => $restaurant->id,
+                'category_id' => $dish['category_id'],
+            ]);
+        }
     }
 }

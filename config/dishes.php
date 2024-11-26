@@ -3,7 +3,8 @@
 return [
     /*Ristorante Cinese */
     [
-        "restaurant_id" => 0,
+        "restaurant_id" => 10,
+        "category_id" => 4,
         "name" => "Riso Fritto alla Cantonese",
         "description" => "Riso saltato con uova, piselli, prosciutto e gamberi.",
         "price" => "8.50",
@@ -11,7 +12,8 @@ return [
         "visibility" => true,
     ],
     [
-        "restaurant_id" => 0,
+        "restaurant_id" => 10,
+        "category_id" => 4,
         "name" => "Pollo al Limone",
         "description" => "Pollo fritto con salsa dolce al limone, accompagnato da riso bianco.",
         "price" => "9.00",
@@ -19,7 +21,8 @@ return [
         "visibility" => true,
     ],
     [
-        "restaurant_id" => 0,
+        "restaurant_id" => 10,
+        "category_id" => 4,
         "name" => "Dim Sum Mix",
         "description" => "Ravioli cinesi al vapore (con carne di maiale e gamberi), porzione mista.",
         "price" => "12.00",
@@ -27,7 +30,8 @@ return [
         "visibility" => true,
     ],
     [
-        "restaurant_id" => 0,
+        "restaurant_id" => 10,
+        "category_id" => 4,
         "name" => "Kung Pao Chicken",
         "description" => "Pollo in salsa piccante con arachidi, peperoncini secchi e verdure.",
         "price" => "10.00",
@@ -35,7 +39,8 @@ return [
         "visibility" => true,
     ],
     [
-        "restaurant_id" => 0,
+        "restaurant_id" => 10,
+        "category_id" => 4,
         "name" => "Involtini Primavera",
         "description" => "Involtini fritti con carne di maiale, verdure e salsa agrodolce.",
         "price" => "5.00",
@@ -45,6 +50,7 @@ return [
     /*Ristorante Giapponese */
     [
         "restaurant_id" => 1,
+        "category_id" => 2,
         "name" => "Sushi Maki Assortito",
         "description" => "Una selezione di maki (tonno, salmone, avocado, cetriolo).",
         "price" => "14.50",
@@ -53,6 +59,7 @@ return [
     ],
     [
         "restaurant_id" => 1,
+        "category_id" => 2,
         "name" => "Bento Box Special",
         "description" => "Box con sushi, tempura, insalata e riso.",
         "price" => "16.00",
@@ -61,6 +68,7 @@ return [
     ],
     [
         "restaurant_id" => 1,
+        "category_id" => 2,
         "name" => "Ramen Tonkotsu (brodo separato)",
         "description" => "Noodles in brodo ricco, servito separato per mantenere la freschezza.",
         "price" => "12.50",
@@ -69,6 +77,7 @@ return [
     ],
     [
         "restaurant_id" => 1,
+        "category_id" => 2,
         "name" => "Gyoza alla Griglia",
         "description" => "Ravioli giapponesi ripieni di carne e verdure, dorati alla griglia.",
         "price" => "8.00",
@@ -77,6 +86,7 @@ return [
     ],
     [
         "restaurant_id" => 1,
+        "category_id" => 2,
         "name" => "Sashimi Mistico",
         "description" => "Selezione di pesce crudo (tonno, salmone, branzino).",
         "price" => "18.00",
@@ -86,6 +96,7 @@ return [
     /*Ristorante Koreano */
     [
         "restaurant_id" => 2,
+        "category_id" => 5,
         "name" => "Bibimbap",
         "description" => "Riso misto con verdure, carne e uovo al centro, con salsa gochujang.",
         "price" => "11.00",
@@ -94,6 +105,7 @@ return [
     ],
     [
         "restaurant_id" => 2,
+        "category_id" => 5,
         "name" => "Bulgogi Beef",
         "description" => "Carne di manzo marinata in salsa di soia e spezie, grigliata e servita con riso.",
         "price" => "13.50",
@@ -102,6 +114,7 @@ return [
     ],
     [
         "restaurant_id" => 2,
+        "category_id" => 5,
         "name" => "Kimchi Jjigae",
         "description" => "Zuppa di kimchi con tofu e carne di maiale.",
         "price" => "9.50",
@@ -110,6 +123,7 @@ return [
     ],
     [
         "restaurant_id" => 2,
+        "category_id" => 5,
         "name" => "Japchae (Noodles di Patate Dolci)",
         "description" => "Noodles saltati con verdure, carne di manzo e salsa di soia.",
         "price" => "10.00",
@@ -118,6 +132,7 @@ return [
     ],
     [
         "restaurant_id" => 2,
+        "category_id" => 5,
         "name" => "Korean Fried Chicken",
         "description" => "Pollo fritto in stile coreano con salsa piccante o dolce.",
         "price" => "12.00",
@@ -127,6 +142,7 @@ return [
     /*Ristorante Messicano */
     [
         "restaurant_id" => 3,
+        "category_id" => 3,
         "name" => "Burrito de Carne Asada",
         "description" => "Burrito farcito con carne grigliata, riso, fagioli e salsa piccante.",
         "price" => "9.50",
@@ -135,6 +151,7 @@ return [
     ],
     [
         "restaurant_id" => 3,
+        "category_id" => 3,
         "name" => "Tacos al Pastor",
         "description" => "Tacos con carne di maiale marinata, ananas, cipolla e coriandolo.",
         "price" => "8.00",
@@ -143,6 +160,7 @@ return [
     ],
     [
         "restaurant_id" => 3,
+        "category_id" => 3,
         "name" => "Quesadillas de Pollo",
         "description" => "Tortillas ripiene di pollo, formaggio e salsa, grigliate.",
         "price" => "7.00",
@@ -151,6 +169,7 @@ return [
     ],
     [
         "restaurant_id" => 3,
+        "category_id" => 3,
         "name" => "Nachos Supreme",
         "description" => "Patatine di mais con formaggio fuso, guacamole, panna acida e salsa.",
         "price" => "7.50",
@@ -159,6 +178,7 @@ return [
     ],
     [
         "restaurant_id" => 3,
+        "category_id" => 3,
         "name" => "Churros con Salsa al Cioccolato",
         "description" => "Churros caldi con zucchero e cannella, accompagnati da salsa al cioccolato.",
         "price" => "5.00",
@@ -168,6 +188,7 @@ return [
     /*Pizzeria */
     [
         "restaurant_id" => 4,
+        "category_id" => 1,
         "name" => "Pizza Margherita",
         "description" => "Pomodoro, mozzarella, basilico fresco e olio d'oliva.",
         "price" => "7.50",
@@ -176,6 +197,7 @@ return [
     ],
     [
         "restaurant_id" => 4,
+        "category_id" => 1,
         "name" => "Pizza Capricciosa",
         "description" => "Prosciutto cotto, funghi, carciofi, olive nere e mozzarella.",
         "price" => "9.00",
@@ -184,6 +206,7 @@ return [
     ],
     [
         "restaurant_id" => 4,
+        "category_id" => 1,
         "name" => "Pizza Quattro Stagioni",
         "description" => "Mozzarella, prosciutto, funghi, carciofi e olive.",
         "price" => "10.00",
@@ -192,6 +215,7 @@ return [
     ],
     [
         "restaurant_id" => 4,
+        "category_id" => 1,
         "name" => "Calzone Ripieno",
         "description" => "Calzone con ricotta, mozzarella, prosciutto e funghi.",
         "price" => "9.50",
@@ -200,6 +224,7 @@ return [
     ],
     [
         "restaurant_id" => 4,
+        "category_id" => 1,
         "name" => "Pizza Vegetariana",
         "description" => "Verdure grigliate (zucchine, melanzane, peperoni) con mozzarella. ",
         "price" => "8.00",
@@ -209,6 +234,7 @@ return [
     /*Ristorante Fusion */
     [
         "restaurant_id" => 5,
+        "category_id" => 6,
         "name" => "Sushi Burrito",
         "description" => "Rotolo di sushi grande con pesce crudo, avocado, riso e verdure, avvolto in alga nori. ",
         "price" => "10.50",
@@ -217,6 +243,7 @@ return [
     ],
     [
         "restaurant_id" => 5,
+        "category_id" => 6,
         "name" => "Tempura Tacos",
         "description" => "Gamberi e verdure in tempura serviti in tacos con salsa teriyaki.",
         "price" => "9.00",
@@ -224,7 +251,8 @@ return [
         "visibility" => true,
     ],
     [
-        "restaurant_id" => "",
+        "restaurant_id" => 5,
+        "category_id" => 6,
         "name" => "Ramen Burger",
         "description" => "Un hamburger fatto con ramen, carne, lattuga e salsa speziata.",
         "price" => "12.00",
@@ -233,6 +261,7 @@ return [
     ],
     [
         "restaurant_id" => 5,
+        "category_id" => 6,
         "name" => "Poke Bowl Fusion",
         "description" => "Riso, pesce crudo, avocado, edamame, salsa di soia e zenzero.",
         "price" => "11.50",
@@ -241,6 +270,7 @@ return [
     ],
     [
         "restaurant_id" => 5,
+        "category_id" => 6,
         "name" => "Kimchi Quesadilla",
         "description" => "Tortilla ripiena di kimchi, formaggio fuso e carne di manzo.",
         "price" => "8.50",
@@ -250,6 +280,7 @@ return [
     /*Ristorante Italiano */
     [
         "restaurant_id" => 6,
+        "category_id" => 1,
         "name" => "Lasagna alla Bolognese",
         "description" => "Lasagna con ragù di carne, besciamella e parmigiano.",
         "price" => "12.00",
@@ -258,6 +289,7 @@ return [
     ],
     [
         "restaurant_id" => 6,
+        "category_id" => 1,
         "name" => "Ossobuco alla Milanese",
         "description" => "Stinco di vitello cotto con salsa gremolada, servito con risotto alla milanese.",
         "price" => "16.50",
@@ -266,6 +298,7 @@ return [
     ],
     [
         "restaurant_id" => 6,
+        "category_id" => 1,
         "name" => "Risotto ai Funghi Porcini",
         "description" => "Risotto cremoso con funghi porcini freschi e parmigiano.",
         "price" => "11.00",
@@ -274,6 +307,7 @@ return [
     ],
     [
         "restaurant_id" => 6,
+        "category_id" => 1,
         "name" => "Polpette al Sugo",
         "description" => "Polpette di carne in sugo di pomodoro, servite con contorno di purè.",
         "price" => "9.50",
@@ -282,6 +316,7 @@ return [
     ],
     [
         "restaurant_id" => 6,
+        "category_id" => 1,
         "name" => "Tiramisù",
         "description" => "Il classico dolce italiano con mascarpone, caffè e cacao.",
         "price" => "5.50",
@@ -291,6 +326,7 @@ return [
     /*Kebab */
     [
         "restaurant_id" => 7,
+        "category_id" => 3,
         "name" => "Kebap di Agnello",
         "description" => "Spiedini di carne di agnello marinata, grigliata e servita con riso o pane.",
         "price" => "10.00",
@@ -299,6 +335,7 @@ return [
     ],
     [
         "restaurant_id" => 7,
+        "category_id" => 3,
         "name" => "Durum Kebab",
         "description" => "Carne di manzo o pollo, verdure e salsa in un piadina turca avvolta.",
         "price" => "8.50",
@@ -307,6 +344,7 @@ return [
     ],
     [
         "restaurant_id" => 7,
+        "category_id" => 3,
         "name" => "Falafel con Hummus",
         "description" => "Polpette di ceci servite con hummus e pita.",
         "price" => "7.50",
@@ -315,6 +353,7 @@ return [
     ],
     [
         "restaurant_id" => 7,
+        "category_id" => 3,
         "name" => "Adana Kebab",
         "description" => "Carne di manzo e agnello macinata, speziata e grigliata su spiedo.",
         "price" => "9.50",
@@ -323,6 +362,7 @@ return [
     ],
     [
         "restaurant_id" => 7,
+        "category_id" => 3,
         "name" => "Baklava",
         "description" => "Dolci turchi con pasta filo, noci e sciroppo dolce.",
         "price" => "4.00",
@@ -332,6 +372,7 @@ return [
     /*Gelateria */
     [
         "restaurant_id" => 8,
+        "category_id" => 1,
         "name" => "Coppa Gelato (3 Gusti)",
         "description" => "Gelato artigianale a scelta tra cioccolato, vaniglia, fragola, pistacchio, e altri gusti stagionali.",
         "price" => "5.00",
@@ -340,6 +381,7 @@ return [
     ],
     [
         "restaurant_id" => 8,
+        "category_id" => 1,
         "name" => "Granita Siciliana",
         "description" => "Granita fresca al limone o alla fragola, servita con brioche.",
         "price" => "4.00",
@@ -348,6 +390,7 @@ return [
     ],
     [
         "restaurant_id" => 8,
+        "category_id" => 1,
         "name" => "Coppetta Affogato al Caffè",
         "description" => "Gelato alla vaniglia con caffè caldo versato sopra.",
         "price" => "6.00",
@@ -356,6 +399,7 @@ return [
     ],
     [
         "restaurant_id" => 8,
+        "category_id" => 1,
         "name" => "Gelato al Pistacchio",
         "description" => "Gelato artigianale al pistacchio siciliano, ricco e cremoso.",
         "price" => "5.50",
@@ -364,6 +408,7 @@ return [
     ],
     [
         "restaurant_id" => 8,
+        "category_id" => 1,
         "name" => "Cialda con Gelato",
         "description" => "Gelato servito in una cialda croccante con topping a scelta (cioccolato, frutta, granella).",
         "price" => "4.00",
@@ -373,6 +418,7 @@ return [
     /*Pasticceria*/
     [
         "restaurant_id" => 9,
+        "category_id" => 1,
         "name" => "Cannoli Siciliani",
         "description" => "Cialde croccanti ripiene di ricotta, zucchero e gocce di cioccolato.",
         "price" => "3.50",
@@ -381,6 +427,7 @@ return [
     ],
     [
         "restaurant_id" => 9,
+        "category_id" => 1,
         "name" => "Torta al Limone",
         "description" => "Torta soffice al limone con crema e glassa.",
         "price" => "4.00",
@@ -389,6 +436,7 @@ return [
     ],
     [
         "restaurant_id" => 9,
+        "category_id" => 1,
         "name" => "Croissant alla Crema",
         "description" => "Cornetto morbido ripieno di crema pasticcera.",
         "price" => "2.50",
@@ -397,6 +445,7 @@ return [
     ],
     [
         "restaurant_id" => 9,
+        "category_id" => 1,
         "name" => "Tiramisù Monoporzione",
         "description" => "Piccola porzione del classico dolce italiano con mascarpone, caffè e cacao.",
         "price" => "4.50",
@@ -405,6 +454,7 @@ return [
     ],
     [
         "restaurant_id" => 9,
+        "category_id" => 1,
         "name" => "Biscotti di Pasta Frolla",
         "description" => "Biscotti freschi e friabili, ottimi per accompagnare il tè o il caffè.",
         "price" => "2.00",

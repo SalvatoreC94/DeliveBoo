@@ -16,13 +16,12 @@ return new class extends Migration {
             $table->text('description');
             $table->decimal('price', 8, 2);
             $table->text('image')->nullable();
-            $table->boolean('visibility')->nullable();
-            $table->foreignId('restaurant_id')
-                ->constrained('restaurants')
-                ->onDelete('cascade')
-                ->nullable();
+            $table->boolean('visibility')->default(true);
+            $table->foreignId('restaurant_id')->constrained('restaurants')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -30,17 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        // Verifica se la tabella 'ordered_request' esiste
-        if (Schema::hasTable('ordered_request')) {
-            Schema::table('ordered_request', function (Blueprint $table) {
-                if (Schema::hasColumn('ordered_request', 'dish_id')) {
-                    $table->dropForeign(['dish_id']); // Rimuove il vincolo
-                }
-            });
-        }
-
-        // Elimina la tabella 'dishes'
         Schema::dropIfExists('dishes');
     }
 };
-

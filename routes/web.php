@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\DishController;
-
+use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,10 +26,17 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function () {
 
-    Route::get('/dashboard', [AdminMainController::class, 'dashboard'])->name('dashboard');
+        Route::get('/dashboard', [AdminMainController::class, 'dashboard'])->name('dashboard');
 
+    });
+
+// Rotte protette da autenticazione
+Route::middleware('auth')->group(function () {
+    Route::resource('dishes', DishController::class);
 });
 
-Route::resource('dishes', DishController::class);
 
-require __DIR__.'/auth.php';
+
+
+
+require __DIR__ . '/auth.php';

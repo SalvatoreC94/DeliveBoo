@@ -4,38 +4,53 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 use App\Models\Dish;
 use App\Models\Restaurant;
+use App\Models\Category;
 
 class DishSeeder extends Seeder
 {
     public function run(): void
     {
-        // Gestione sicura dei vincoli e reset dei dati
+        // Disabilita vincoli e reset dei dati
         Schema::disableForeignKeyConstraints();
-
-        // Svuota prima la tabella dipendente
-        DB::table('ordered_request')->truncate();
-
-        // Svuota la tabella dishes
         Dish::truncate();
-
         Schema::enableForeignKeyConstraints();
 
-        // Dati dei piatti
-        $dishes = config('dishes');
+        // Recupera tutti i ristoranti
+        $restaurants = Restaurant::all();
 
-        foreach ($dishes as $singleDish) {
-            Dish::create([
-                'name' => $singleDish['name'],
-                'description' => $singleDish['description'],
-                'price' => $singleDish['price'],
-                'image' => $singleDish['image'],
-                'visibility' => $singleDish['visibility'],
-                'restaurant_id' => Restaurant::inRandomOrder()->first()->id,
-            ]);
+        // Recupera i piatti dalla configurazione
+        $allDishes = config('dishes');
+
+        foreach ($restaurants as $restaurant) {
+            // Recupera tutte le categorie associate al ristorante
+            $categories = $restaurant->categories;
+
+            if ($categories->isEmpty()) {
+                // Salta il ristorante se non ha categorie
+                continue;
+            }
+
+            foreach ($categories as $category) {
+                // Filtra i piatti in base alla categoria
+                $dishesForCategory = collect($allDishes)->filter(function ($dish) use ($category) {
+                    return $dish['category_id'] == $category->id;
+                });
+
+                // Crea i piatti per il ristorante
+                foreach ($dishesForCategory as $dishData) {
+                    Dish::create([
+                        'name' => $dishData['name'],
+                        'description' => $dishData['description'],
+                        'price' => $dishData['price'],
+                        'image' => $dishData['image'],
+                        'visibility' => $dishData['visibility'],
+                        'restaurant_id' => $restaurant->id,
+                        'category_id' => $category->id, // Associa alla categoria corretta
+                    ]);
+                }
+            }
         }
     }
 }
-
