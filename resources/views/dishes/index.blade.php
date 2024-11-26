@@ -11,10 +11,9 @@
         @else
             <div class="row">
                 @foreach ($dishes as $dish)
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
-                            <img src="{{ $dish->image ?? 'https://via.placeholder.com/150' }}" class="card-img-top"
-                                alt="{{ $dish->name }}">
+                            <img src="{{ $dish->image }}" class="card-img-top" alt="{{ $dish->name }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $dish->name }}</h5>
                                 <p class="card-text">{{ $dish->description }}</p>

@@ -8,7 +8,7 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        @if (isset($project->image))
+                        @if (isset($dish->image))
                             <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" style="max-width: 250px">
                         @endif
                     </div>

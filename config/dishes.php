@@ -8,7 +8,7 @@ return [
         "name" => "Riso Fritto alla Cantonese",
         "description" => "Riso saltato con uova, piselli, prosciutto e gamberi.",
         "price" => "8.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tavolartegusto.it%2Fricetta%2Friso-alla-cantonese%2F&psig=AOvVaw2b3brqNYb5eSLw8DLrCyyb&ust=1732370523569000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLimr6GN8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.giallozafferano.it/images/229-22992/Riso-alla-cantonese_450x300.jpg",
         "visibility" => true,
     ],
     [
@@ -17,7 +17,7 @@ return [
         "name" => "Pollo al Limone",
         "description" => "Pollo fritto con salsa dolce al limone, accompagnato da riso bianco.",
         "price" => "9.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fricette.giallozafferano.it%2FPollo-al-limone.html&psig=AOvVaw3QHPl5w4sXwbIBOppoq0Jn&ust=1732370771151000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCfkMWQ8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.giallozafferano.it/images/235-23580/Pollo-al-limone_450x300.jpg",
         "visibility" => true,
     ],
     [
@@ -26,7 +26,7 @@ return [
         "name" => "Dim Sum Mix",
         "description" => "Ravioli cinesi al vapore (con carne di maiale e gamberi), porzione mista.",
         "price" => "12.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tokopedia.com%2Fdapurkamii%2Fdimsum-mix-ayam-25-pcs%3Futm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dpdp&psig=AOvVaw3jUEiOUY_vZH-WDHq227Kc&ust=1732371517728000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMC3tPqQ8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://yoursushiroma.it/wp-content/uploads/2017/09/Dim-Sum-Mix-web.jpg",
         "visibility" => true,
     ],
     [
@@ -35,7 +35,7 @@ return [
         "name" => "Kung Pao Chicken",
         "description" => "Pollo in salsa piccante con arachidi, peperoncini secchi e verdure.",
         "price" => "10.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.chewoutloud.com%2Ffast-healthy-kung-pao-chicken-recipe%2F&psig=AOvVaw3F2i0sk9Wg2ttsHGV2jUV3&ust=1732371779812000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKDfyfaR8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://www.seriouseats.com/thmb/_hMTqVpapsx30jF_31xmKEuhQ5s=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2014__07__2021-02-12-Take-Out-Kung-Pao-Chicken-MHOM-11-c46f6c06713c45c5a287ddbf08779d04.jpg",
         "visibility" => true,
     ],
     [
@@ -44,7 +44,7 @@ return [
         "name" => "Involtini Primavera",
         "description" => "Involtini fritti con carne di maiale, verdure e salsa agrodolce.",
         "price" => "5.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fricette.giallozafferano.it%2FInvoltini-primavera.html&psig=AOvVaw011FJreAA2Xpmg2p4Wff8N&ust=1732371882469000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjX5aaS8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.giallozafferano.it/images/230-23004/Involtini-primavera_450x300.jpg",
         "visibility" => true,
     ],
     /*Ristorante Giapponese */
@@ -54,7 +54,7 @@ return [
         "name" => "Sushi Maki Assortito",
         "description" => "Una selezione di maki (tonno, salmone, avocado, cetriolo).",
         "price" => "14.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fasushibuffet.com%2F1-assorted-sushi-maki-combination-34-pcs%2F&psig=AOvVaw3EkfrI22FMJcc83Kd0Jv90&ust=1732372321014000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLD57PiT8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://static.vecteezy.com/ti/foto-gratuito/p1/32700113-alto-giapponese-sushi-cibo-maki-ands-rotoli-con-salmone-gamberetto-granchio-e-avocado-superiore-visualizza-di-assortito-sushi-tutti-voi-puo-mangiare-menu-arcobaleno-sushi-rotolo-uramaki-hosomaki-e-nigiri-foto.jpg",
         "visibility" => true,
     ],
     [
@@ -63,7 +63,7 @@ return [
         "name" => "Bento Box Special",
         "description" => "Box con sushi, tempura, insalata e riso.",
         "price" => "16.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goenne.com%2Fpost%2Ftime-honored-tradition-meets-modern-convenience-the-benefits-of-a-wooden-bento-box&psig=AOvVaw0S68PE3hIGISmva0cghvyL&ust=1732372256151000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLiAq9qT8IkDFQAAAAAdAAAAABAY",
+        "image" => "https://www.luxurypretaporter.it/wp-content/uploads/2020/12/BENTO-DELIVERY-TENOHA2.jpg",
         "visibility" => true,
     ],
     [
@@ -72,7 +72,7 @@ return [
         "name" => "Ramen Tonkotsu (brodo separato)",
         "description" => "Noodles in brodo ricco, servito separato per mantenere la freschezza.",
         "price" => "12.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.foodandwine.com%2Ftonkotsu-ramen-7094539&psig=AOvVaw3yvkMHciJA6zuGXYIV6wAZ&ust=1732372187166000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODW4riT8IkDFQAAAAAdAAAAABAR",
+        "image" => "https://www.seriouseats.com/thmb/IBikLAGkkP2QVaF3vLIk_LeNqHM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/rich-and-creamy-tonkotsu-ramen-broth-from-scratch-recipe-Diana-Chistruga-hero-6d318fadcca64cc9ac3e1c40fc7682fb.JPG",
         "visibility" => true,
     ],
     [
@@ -81,7 +81,7 @@ return [
         "name" => "Gyoza alla Griglia",
         "description" => "Ravioli giapponesi ripieni di carne e verdure, dorati alla griglia.",
         "price" => "8.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.giallozafferano.it%2Fcucinaregiapponese%2Fricetta-gyoza-con-pollo-e-funghi-shitake-alla-piastra%2F&psig=AOvVaw1yJj7fcTqutGd8O6V_i62i&ust=1732372141452000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNixzaOT8IkDFQAAAAAdAAAAABAY",
+        "image" => "https://kingu.it/wp-content/uploads/2022/09/Gyoza-gamberi.jpg",
         "visibility" => true,
     ],
     [
@@ -90,7 +90,7 @@ return [
         "name" => "Sashimi Mistico",
         "description" => "Selezione di pesce crudo (tonno, salmone, branzino).",
         "price" => "18.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gruppogermogli.it%2Fen%2Fprodotto%2Fsashimi-misto%2F&psig=AOvVaw2bVdNJ7bP_4B7HRqYlgBFd&ust=1732372107599000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLDm15KT8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.passionegourmet.it/wp-content/uploads/2015/11/BAS19LC.jpg",
         "visibility" => true,
     ],
     /*Ristorante Koreano */
@@ -100,7 +100,7 @@ return [
         "name" => "Bibimbap",
         "description" => "Riso misto con verdure, carne e uovo al centro, con salsa gochujang.",
         "price" => "11.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.stoneline.de%2Fit%2Fricette%2Fcoreano-bibimbap&psig=AOvVaw0HyvBMIZ8525H_LEg_QcHu&ust=1732372512175000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLi8o9OU8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://upload.wikimedia.org/wikipedia/commons/4/44/Dolsot-bibimbap.jpg",
         "visibility" => true,
     ],
     [
@@ -109,7 +109,7 @@ return [
         "name" => "Bulgogi Beef",
         "description" => "Carne di manzo marinata in salsa di soia e spezie, grigliata e servita con riso.",
         "price" => "13.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcooking.nytimes.com%2Frecipes%2F1017444-bulgogi&psig=AOvVaw1ZqwVapsZvZwF9fbEynXHs&ust=1732372577399000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDnvvWU8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.allrecipes.com/thmb/G_UXncCchkMVeELX8DQMEwJOdHI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/246172-Easy-Bulgogi-ddmfs-104-4x3-1-c0ddcab340474175a5d1c96bc2edabbc.jpg",
         "visibility" => true,
     ],
     [
@@ -118,7 +118,7 @@ return [
         "name" => "Kimchi Jjigae",
         "description" => "Zuppa di kimchi con tofu e carne di maiale.",
         "price" => "9.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eatingwell.com%2Frecipe%2F7903590%2Fkimchi-jjigae%2F&psig=AOvVaw3pjDoAj4MFjy0_OpSLOktv&ust=1732372623930000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJi_yYiV8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://www.agrodolce.it/app/uploads/2020/11/kimchi-jjigae-2020-i-0146.jpg",
         "visibility" => true,
     ],
     [
@@ -127,7 +127,7 @@ return [
         "name" => "Japchae (Noodles di Patate Dolci)",
         "description" => "Noodles saltati con verdure, carne di manzo e salsa di soia.",
         "price" => "10.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mangiarebene.com%2Fricette%2Fuova%2Fvermicelli-di-patate-dolci-saltati-con-carni-e-verdure-japchae&psig=AOvVaw3Peh4xFkZyDiRVS6ATN8rL&ust=1732372708724000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMjM67GV8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://imgstore.sndimg.com/magnolia/images/b5a47774-8935-4b1c-b578-a452d2b0d17c.jpg",
         "visibility" => true,
     ],
     [
@@ -136,7 +136,7 @@ return [
         "name" => "Korean Fried Chicken",
         "description" => "Pollo fritto in stile coreano con salsa piccante o dolce.",
         "price" => "12.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kitchensanctuary.com%2Fkorean-fried-chicken%2F&psig=AOvVaw3zhV4NQTAeM7pcyaCvpgOF&ust=1732372752887000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCwo8aV8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://www.kitchensanctuary.com/wp-content/uploads/2019/08/Korean-Fried-Chicken-square-FS-New-7377.jpg",
         "visibility" => true,
     ],
     /*Ristorante Messicano */
@@ -146,7 +146,7 @@ return [
         "name" => "Burrito de Carne Asada",
         "description" => "Burrito farcito con carne grigliata, riso, fagioli e salsa piccante.",
         "price" => "9.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.heinens.com%2Frecipes%2Fcarne-asada-burrito%2F&psig=AOvVaw34v17tGDHa6VNjnrBnNpjP&ust=1732372860373000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLifgvqV8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.heinens.com/content/uploads/2020/08/Carne-Asada-Burrito_800x550.jpg",
         "visibility" => true,
     ],
     [
@@ -155,7 +155,7 @@ return [
         "name" => "Tacos al Pastor",
         "description" => "Tacos con carne di maiale marinata, ananas, cipolla e coriandolo.",
         "price" => "8.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.culinaryhill.com%2Ftacos-al-pastor%2F&psig=AOvVaw0_PqTe44ZltVtREBNlhUv6&ust=1732372885449000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLidpoqW8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.seriouseats.com/thmb/4kbwN13BlZnZ3EywrtG2AzCKuYs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210712-tacos-al-pastor-melissa-hom-seriouseats-37-f72cdd02c9574bceb1eef1c8a23b76ed.jpg",
         "visibility" => true,
     ],
     [
@@ -164,7 +164,7 @@ return [
         "name" => "Quesadillas de Pollo",
         "description" => "Tortillas ripiene di pollo, formaggio e salsa, grigliate.",
         "price" => "7.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.annarecetasfaciles.com%2Fquesadilla-de-pollo.html&psig=AOvVaw3pCafPrDvKYxKYjWDJDpMM&ust=1732372942388000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKiOzKCW8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://i.ytimg.com/vi/9Yy9JIvi0_U/maxresdefault.jpg",
         "visibility" => true,
     ],
     [
@@ -173,7 +173,7 @@ return [
         "name" => "Nachos Supreme",
         "description" => "Patatine di mais con formaggio fuso, guacamole, panna acida e salsa.",
         "price" => "7.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.delish.com%2Fcooking%2Frecipe-ideas%2Fa51518%2Fnachos-supreme-recipe%2F&psig=AOvVaw30blL6jzm20RaBXkpqa3gf&ust=1732373012046000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPDmlMKW8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://hips.hearstapps.com/hmg-prod/images/nachos-supreme-secondary-66154d44214ee.jpg",
         "visibility" => true,
     ],
     [
@@ -182,7 +182,7 @@ return [
         "name" => "Churros con Salsa al Cioccolato",
         "description" => "Churros caldi con zucchero e cannella, accompagnati da salsa al cioccolato.",
         "price" => "5.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffooby.ch%2Fit%2Fricette%2F16925%2Fchurros-con-salsa-al-cioccolato-piccante&psig=AOvVaw182WojDOsIcZq_tnBWvcNQ&ust=1732373050638000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOC0pdWW8IkDFQAAAAAdAAAAABAQ",
+        "image" => "https://d2sj0xby2hzqoy.cloudfront.net/kenwood_italy/attachments/data/000/007/262/medium/churros-con-salsa-al-cioccolato.jpg",
         "visibility" => true,
     ],
     /*Pizzeria */
@@ -192,7 +192,7 @@ return [
         "name" => "Pizza Margherita",
         "description" => "Pomodoro, mozzarella, basilico fresco e olio d'oliva.",
         "price" => "7.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fit.ooni.com%2Fblogs%2Frecipes%2Fmargherita-pizza&psig=AOvVaw1r51tuznlOHdbASiTz5sb1&ust=1732373481086000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNjE86GY8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.reggiadicasertaunofficial.it/wp-content/uploads/pizza-margherita-la-vera-storia.webp",
         "visibility" => true,
     ],
     [
@@ -201,7 +201,7 @@ return [
         "name" => "Pizza Capricciosa",
         "description" => "Prosciutto cotto, funghi, carciofi, olive nere e mozzarella.",
         "price" => "9.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.buonissimo.it%2Flericette%2F5881_Pizza_capricciosa&psig=AOvVaw0l7qmBC5qzxpwKMbAP6M4y&ust=1732373456931000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJjg9paY8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://primochef.it/wp-content/uploads/2018/05/SH_pizza_capricciosa.jpg",
         "visibility" => true,
     ],
     [
@@ -210,7 +210,7 @@ return [
         "name" => "Pizza Quattro Stagioni",
         "description" => "Mozzarella, prosciutto, funghi, carciofi e olive.",
         "price" => "10.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cookaround.com%2Fricetta%2FPizza-4-stagioni.html&psig=AOvVaw1-yv8Vb09r32ILMF8Y4a-M&ust=1732373437732000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOjIoY2Y8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144880/hd750x421.jpg",
         "visibility" => true,
     ],
     [
@@ -219,7 +219,7 @@ return [
         "name" => "Calzone Ripieno",
         "description" => "Calzone con ricotta, mozzarella, prosciutto e funghi.",
         "price" => "9.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpepesangiovanni.it%2Fcalzone-ripieno%2F&psig=AOvVaw2Gc3hGNFhgiCobH5R-Wwh4&ust=1732373405792000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMD50P6X8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://recipesblob.paneangeli.it/assets/80d5605863064425b82894dc4162cdc4/1272x764/calzone-ripieno-ricjpg.jpg",
         "visibility" => true,
     ],
     [
@@ -228,7 +228,7 @@ return [
         "name" => "Pizza Vegetariana",
         "description" => "Verdure grigliate (zucchine, melanzane, peperoni) con mozzarella. ",
         "price" => "8.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.guardini.com%2Fit%2Fricette%2Fpizza-vegetariana.html&psig=AOvVaw2sYNy3OUa1kNBHxQlx3eLH&ust=1732373377711000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIib6--X8IkDFQAAAAAdAAAAABAQ",
+        "image" => "https://www.guardini.com/images/guardinispa/ricette/full/pizza_set_2021_full.jpg",
         "visibility" => true,
     ],
     /*Ristorante Fusion */
@@ -238,7 +238,7 @@ return [
         "name" => "Sushi Burrito",
         "description" => "Rotolo di sushi grande con pesce crudo, avocado, riso e verdure, avvolto in alga nori. ",
         "price" => "10.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eatbetter.de%2Frezepte%2Fsushi-burrito-knackig-frisch-genial-lecker&psig=AOvVaw3pQEvF5dnE9QJMnzFM2VuX&ust=1732373539387000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNDohr2Y8IkDFQAAAAAdAAAAABAf",
+        "image" => "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/03/sushi-burrito/_jcr_content/header-par/image-single.img.jpg/1520441318780.jpg",
         "visibility" => true,
     ],
     [
@@ -247,7 +247,7 @@ return [
         "name" => "Tempura Tacos",
         "description" => "Gamberi e verdure in tempura serviti in tacos con salsa teriyaki.",
         "price" => "9.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vegkit.com%2Frecipes%2Ffreshly-picked-tempura-battered-eggplant-tacos%2F&psig=AOvVaw1wT9kbmo0BdfTCpywnUJlh&ust=1732373607695000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiCyt6Y8IkDFQAAAAAdAAAAABAZ",
+        "image" => "https://www.carnaldish.com/wp-content/uploads/2015/09/crispyfishtaco1.jpg",
         "visibility" => true,
     ],
     [
@@ -256,7 +256,7 @@ return [
         "name" => "Ramen Burger",
         "description" => "Un hamburger fatto con ramen, carne, lattuga e salsa speziata.",
         "price" => "12.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eatfigsnotpigs.com%2Fasian-inspired-ramen-bun-burger-with-kimchi-slaw-wassabi-mayo-vegan-gf%2F&psig=AOvVaw21__3XIxcVhIQvKv_gXDn1&ust=1732373648561000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCb6fGY8IkDFQAAAAAdAAAAABAg",
+        "image" => "https://img.taste.com.au/-K95Ndvh/taste/2016/11/ramen-burger-109717-1.jpeg",
         "visibility" => true,
     ],
     [
@@ -265,7 +265,7 @@ return [
         "name" => "Poke Bowl Fusion",
         "description" => "Riso, pesce crudo, avocado, edamame, salsa di soia e zenzero.",
         "price" => "11.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcookpad.com%2Fit%2Fricette%2F12810220-poke-bowl-fusion&psig=AOvVaw0oOJipEE74-ClKnVCe4vIX&ust=1732373734687000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKi335qZ8IkDFQAAAAAdAAAAABAp",
+        "image" => "https://img-global.cpcdn.com/recipes/46be0d7596af5e5e/680x482cq70/poke-bowl-fusion-recipe-main-photo.jpg",
         "visibility" => true,
     ],
     [
@@ -274,7 +274,7 @@ return [
         "name" => "Kimchi Quesadilla",
         "description" => "Tortilla ripiena di kimchi, formaggio fuso e carne di manzo.",
         "price" => "8.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmissionfoodservice.com%2FRecipes%2FRecipeDetails%3Fname%3DKimchi%2BQuesadilla&psig=AOvVaw3NlhdBdOKjg9_s3isPfhB-&ust=1732373835991000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCq8sqZ8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.siftandsimmer.com/wp-content/uploads/2022/07/kimchi-chicken-quesadillas-featured.jpg",
         "visibility" => true,
     ],
     /*Ristorante Italiano */
@@ -284,7 +284,7 @@ return [
         "name" => "Lasagna alla Bolognese",
         "description" => "Lasagna con ragù di carne, besciamella e parmigiano.",
         "price" => "12.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.conad.it%2Fricette%2Fprimi-piatti%2Fal-forno%2Flasagne-alla-bolognese&psig=AOvVaw1FButpEi9QJCw5faHihGeP&ust=1732373961079000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOjCoIia8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2009/12/ricetta-lasagne-bolognese/_jcr_content/header-par/image_single.img.jpg/1462958827968.jpg",
         "visibility" => true,
     ],
     [
@@ -293,7 +293,7 @@ return [
         "name" => "Ossobuco alla Milanese",
         "description" => "Stinco di vitello cotto con salsa gremolada, servito con risotto alla milanese.",
         "price" => "16.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cucchiaio.it%2Fricetta%2Fricetta-ossibuchi-milanese%2F&psig=AOvVaw0MKYaUvpCMC_fIIff7U1bN&ust=1732374019058000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCICZgaSa8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://media-assets.lacucinaitaliana.it/photos/635169cdbc2c8a8e10d1f342/16:9/w_2560%2Cc_limit/GettyImages-482478191.jpg",
         "visibility" => true,
     ],
     [
@@ -302,7 +302,7 @@ return [
         "name" => "Risotto ai Funghi Porcini",
         "description" => "Risotto cremoso con funghi porcini freschi e parmigiano.",
         "price" => "11.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fricette.giallozafferano.it%2FRisotto-ai-funghi-porcini.html&psig=AOvVaw1kaKASkx4gWJkYZLlewxPl&ust=1732374094099000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCpg8aa8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://oliofarchioni.com/wp-content/uploads/2021/09/risotto-ai-funghi-porcini-1.jpg",
         "visibility" => true,
     ],
     [
@@ -311,7 +311,7 @@ return [
         "name" => "Polpette al Sugo",
         "description" => "Polpette di carne in sugo di pomodoro, servite con contorno di purè.",
         "price" => "9.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fricette.giallozafferano.it%2FPolpette-al-sugo.html&psig=AOvVaw2iwiDOY2pOO5L3mv13Z0R6&ust=1732374146988000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLC1xOqa8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/11/polpette-al-sugo/_jcr_content/header-par/image-single.img.jpg/1541764256677.jpg",
         "visibility" => true,
     ],
     [
@@ -320,7 +320,7 @@ return [
         "name" => "Tiramisù",
         "description" => "Il classico dolce italiano con mascarpone, caffè e cacao.",
         "price" => "5.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cookaround.com%2Fricetta%2Ftiramisu-classico.html&psig=AOvVaw1I07XOwXAGaY9sZkykYrZr&ust=1732374219339000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODJ6oOb8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2024/07/tiramisu-finale.jpeg",
         "visibility" => true,
     ],
     /*Kebab */
@@ -330,7 +330,7 @@ return [
         "name" => "Kebap di Agnello",
         "description" => "Spiedini di carne di agnello marinata, grigliata e servita con riso o pane.",
         "price" => "10.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.agrodolce.it%2Fricette%2Fshish-kebab-di-agnello&psig=AOvVaw0NnvG4km8J9lnKwOZUK2kM&ust=1732374283623000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPC3pKWb8IkDFQAAAAAdAAAAABAY",
+        "image" => "https://cdn.agrodolce.it/HMeypMq1kgkV97QHL1bNO-sgKR8=/2300x1294/smart/https://www.agrodolce.it/app/uploads/2018/08/084-18-Shish-kebab-di-agnello.jpg",
         "visibility" => true,
     ],
     [
@@ -339,7 +339,7 @@ return [
         "name" => "Durum Kebab",
         "description" => "Carne di manzo o pollo, verdure e salsa in un piadina turca avvolta.",
         "price" => "8.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Froyalkebab-pizzeria.ch%2Fproduct%2Fkebab-dueruem%2F&psig=AOvVaw3vX4VRzzmshgphL13Xvd9G&ust=1732374365701000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLCR0-ab8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://isturkkebabpizza.com/wp-content/uploads/2024/06/3.webp",
         "visibility" => true,
     ],
     [
@@ -348,7 +348,7 @@ return [
         "name" => "Falafel con Hummus",
         "description" => "Polpette di ceci servite con hummus e pita.",
         "price" => "7.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hellofresh.it%2Frecipes%2Ffalafel-fritti-su-hummus-di-carote-660bc5939b244e4ad68f296b&psig=AOvVaw34dTxqLDf56tSreWi3UWNJ&ust=1732374515115000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKjsgI-c8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/HF_Y24_R14_W27_IT_IT23255-2_Main_low-4002e116.jpg",
         "visibility" => true,
     ],
     [
@@ -357,7 +357,7 @@ return [
         "name" => "Adana Kebab",
         "description" => "Carne di manzo e agnello macinata, speziata e grigliata su spiedo.",
         "price" => "9.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fturkishfoodie.com%2Fadana-kebab%2F&psig=AOvVaw3IKX_iN-76_XLQ2XyL-bxZ&ust=1732374576839000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIDU7auc8IkDFQAAAAAdAAAAABAQ",
+        "image" => "https://www.seriouseats.com/thmb/IVzgrLg6lmc_VvMjsfZAxI6Cx3E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__04__20140428-adana-kebab-22-2f4debebf43d462ba045e041a9e9add4.jpg",
         "visibility" => true,
     ],
     [
@@ -366,7 +366,7 @@ return [
         "name" => "Baklava",
         "description" => "Dolci turchi con pasta filo, noci e sciroppo dolce.",
         "price" => "4.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.chefkoch.de%2Frezepte%2F1582931265789857%2FBaklava.html&psig=AOvVaw2IF8a91VCF4Fw4yZa-9UNF&ust=1732374638068000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOCqwMmc8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://www.tavolartegusto.it/wp/wp-content/uploads/2022/08/Baklava.jpg",
         "visibility" => true,
     ],
     /*Gelateria */
@@ -376,7 +376,7 @@ return [
         "name" => "Coppa Gelato (3 Gusti)",
         "description" => "Gelato artigianale a scelta tra cioccolato, vaniglia, fragola, pistacchio, e altri gusti stagionali.",
         "price" => "5.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fit%2Fimmagine%2Fcoppa-gelato&psig=AOvVaw1YbN9DZQOXJGB93RXCgyzb&ust=1732374748194000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIj47P-c8IkDFQAAAAAdAAAAABAJ",
+        "image" => "https://media-assets.lacucinaitaliana.it/photos/61faffc188fb17b116c42ae1/3:2/w_1599,h_1066,c_limit/coppa-gelato-mangia-bevi.jpg",
         "visibility" => true,
     ],
     [
@@ -385,7 +385,7 @@ return [
         "name" => "Granita Siciliana",
         "description" => "Granita fresca al limone o alla fragola, servita con brioche.",
         "price" => "4.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fclaudiafornaciari.it%2Fricette%2Fgranita-siciliana-al-pistacchio%2F&psig=AOvVaw2RwGtfpcSP-UHK6Qnc0lue&ust=1732374855358000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOjun7Kd8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://claudiafornaciari.it/wp-content/uploads/2018/10/granita-siciliana-pistacchio-Bronte-4.jpg",
         "visibility" => true,
     ],
     [
@@ -394,7 +394,7 @@ return [
         "name" => "Coppetta Affogato al Caffè",
         "description" => "Gelato alla vaniglia con caffè caldo versato sopra.",
         "price" => "6.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ilgiornaledelcibo.it%2Faffogato-al-caffe-ricette%2F&psig=AOvVaw2t6vlXn8v5cT1hTxmQ7ghD&ust=1732374918655000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLiLmM-d8IkDFQAAAAAdAAAAABAQ",
+        "image" => "https://www.ilgiornaledelcibo.it/wp-content/uploads/2020/06/affogato-al-caffe-decorazione.jpg",
         "visibility" => true,
     ],
     [
@@ -403,7 +403,7 @@ return [
         "name" => "Gelato al Pistacchio",
         "description" => "Gelato artigianale al pistacchio siciliano, ricco e cremoso.",
         "price" => "5.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cucchiaio.it%2Fricetta%2Fgelato-al-pistacchio%2F&psig=AOvVaw2anuhibGDhq9SN7gk59Dor&ust=1732374952864000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMDpqd-d8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2021/06/gelato-al-pistacchio/_jcr_content/header-par/image-single.img.jpg/1624302766808.jpg",
         "visibility" => true,
     ],
     [
@@ -412,7 +412,7 @@ return [
         "name" => "Cialda con Gelato",
         "description" => "Gelato servito in una cialda croccante con topping a scelta (cioccolato, frutta, granella).",
         "price" => "4.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ilgiornaledelcibo.it%2Fcome-fare-cono-gelato-a-casa%2F&psig=AOvVaw0NiPPaSdmCGiw8IUr5OAC5&ust=1732375023927000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNDHj4Ke8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.cuocicuoci.com/wp-content/uploads/2021/08/cialda-da-pasticceria-gelato-scaled.jpg",
         "visibility" => true,
     ],
     /*Pasticceria*/
@@ -422,7 +422,7 @@ return [
         "name" => "Cannoli Siciliani",
         "description" => "Cialde croccanti ripiene di ricotta, zucchero e gocce di cioccolato.",
         "price" => "3.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fricette.giallozafferano.it%2FCannoli-siciliani.html&psig=AOvVaw1gCOOy1tkRaOO-VUjB2Gtw&ust=1732375052651000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNj4u46e8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.cucchiaio.it/content/cucchiaio/it/ricette/2015/11/cannoli-siciliani/_jcr_content/header-par/image-single.img.jpg/1448891641713.jpg",
         "visibility" => true,
     ],
     [
@@ -431,7 +431,7 @@ return [
         "name" => "Torta al Limone",
         "description" => "Torta soffice al limone con crema e glassa.",
         "price" => "4.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fricette.giallozafferano.it%2FTorta-soffice-al-limone.html&psig=AOvVaw0HgsYJY2pwfcVuqub9SlmJ&ust=1732375131925000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCysbSe8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.giallozafferano.it/images/225-22570/Torta-soffice-al-limone_650x433_wm.jpg",
         "visibility" => true,
     ],
     [
@@ -440,7 +440,7 @@ return [
         "name" => "Croissant alla Crema",
         "description" => "Cornetto morbido ripieno di crema pasticcera.",
         "price" => "2.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ilclubdellericette.it%2Fricetta%2Fcornetti-alla-crema&psig=AOvVaw0lxODcJX7DB7TdtN-XergL&ust=1732375162830000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMDkzMOe8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.pasticceriatagliafico.it/Uploads/Small/croissant-crema-3_120_s.jpg",
         "visibility" => true,
     ],
     [
@@ -449,7 +449,7 @@ return [
         "name" => "Tiramisù Monoporzione",
         "description" => "Piccola porzione del classico dolce italiano con mascarpone, caffè e cacao.",
         "price" => "4.50",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gattullo.it%2Ftiramisu-monoporzione-con-miscela-di-caffe-arabica%2F&psig=AOvVaw39u27FzMfxaVh0sUKl5sGy&ust=1732375403293000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIj_hraf8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.gattullo.it/wp-content/uploads/2023/05/tiramisu-monoporzione.jpg",
         "visibility" => true,
     ],
     [
@@ -458,7 +458,7 @@ return [
         "name" => "Biscotti di Pasta Frolla",
         "description" => "Biscotti freschi e friabili, ottimi per accompagnare il tè o il caffè.",
         "price" => "2.00",
-        "image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpaneangeli.it%2Fricetta%2Fbiscotti-di-pasta-frolla&psig=AOvVaw3bS52xW0wmuAL_1xCWQvya&ust=1732375371143000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCjuKaf8IkDFQAAAAAdAAAAABAE",
+        "image" => "https://www.cucchiaio.it/content/cucchiaio/it/articoli/2023/06/32-biscotti-di-pasta-frolla/jcr:content/page_images/ogImage.img10.jpg/1687266710720.jpg",
         "visibility" => true,
     ],
 
