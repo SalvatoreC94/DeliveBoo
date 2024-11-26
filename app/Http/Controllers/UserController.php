@@ -22,6 +22,6 @@ class UserController extends Controller
         // Utente autenticato
         Auth::user()->delete();
 
-        return redirect(route('guest'))->with('userDeleted', 'Hai cancellato i tuoi dati, spriamo di rivederti presto');
+        return redirect(route('layouts.guest'))->with('userDeleted', 'Hai cancellato i tuoi dati, spriamo di rivederti presto');
     }
 }

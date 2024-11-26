@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
-Route::put('/user/destroy', [UserController::class, 'destroy'])->name('user.destroy');
+Route::put('/destroy', [UserController::class, 'destroy'])->name('user.destroy');
 
 
 

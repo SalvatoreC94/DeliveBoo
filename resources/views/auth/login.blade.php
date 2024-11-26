@@ -32,6 +32,17 @@
             <button type="submit" class="btn btn-primary">Accedi</button>
         </form>
 
+        
+        @if (session('userDeleted'))
+            <div class="row">
+                <div class="col">
+                    <div class="card my-2 alert alert-danger">
+                        {{ session('userDeleted') }}
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <!-- Link alla Registrazione -->
         <p class="mt-3">Non hai un account? <a href="{{ route('register') }}">Registrati qui</a></p>
     </div>

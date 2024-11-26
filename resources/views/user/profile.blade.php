@@ -5,7 +5,7 @@
 @section('main-content')
     <div class="container vh-100 py-5 text-center">
         <div class="row justify-content-center">
-            <h1>User:
+            <h1>Nome Utente:
                 {{ Auth::user()->username }}
             </h1>
             <div class="card border-dark mb-3  text-start my-4" style="max-width: 25rem;">
@@ -19,12 +19,6 @@
                         Username:
                     </b>
                     {{ Auth::user()->username }}
-                </p>
-                <p class="card-text">
-                    <b>
-                        Email:
-                    </b>
-                    {{ Auth::user()->email }}
                 </p>
                 <p class="card-text">
                     <b>
