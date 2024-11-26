@@ -17,7 +17,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // Relazione uno a uno con il ristorante (il ristoratore può gestire un solo ristorante)
+    // Relazione One to One con restaurant (il ristoratore può gestire un solo ristorante)
     public function restaurant()
     {
         return $this->hasOne(Restaurant::class);

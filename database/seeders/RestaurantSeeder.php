@@ -7,8 +7,10 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 //Models
-use App\Models\Restaurant;
-use App\Models\User;
+use App\Models\{
+    Restaurant,
+    User
+};
 
 
 class RestaurantSeeder extends Seeder
@@ -31,8 +33,9 @@ class RestaurantSeeder extends Seeder
             $restaurant->address = $singleRestaurant['address'];
             $restaurant->partita_iva = $singleRestaurant['partita_iva'];
             $restaurant->image = $singleRestaurant['image'];
-            $restaurant->user_id = $singleRestaurant['user_id'];
+            $restaurant->user_id = User::inRandomOrder()->first()->id;
             $restaurant->save();
         }
+        ;
     }
 }

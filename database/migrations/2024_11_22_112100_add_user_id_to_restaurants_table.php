@@ -10,12 +10,17 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('restaurants', function (Blueprint $table) {
-            if (!Schema::hasColumn('restaurants', 'user_id')) {
-                $table->foreignId('user_id')
-                    ->constrained('users')
-                    ->onDelete('cascade');
-            }
+        Schema::disableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();
+        // Relazione One to One tra users e restaurants
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('restaurant_id')->nullable(); // Chiave esterna
+        
+            $table->foreign('restaurant_id') // Relazione inversa
+                ->references('id')         // Colonna nella tabella `restaurants`
+                ->on('restaurants')        // Tabella di riferimento
+                // ->after('')
+                ->onDelete('cascade');
         });
     }
 
@@ -25,8 +30,8 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('restaurants', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
+            $table->dropForeign(['restaurant_id']);
+            $table->dropColumn('restaurant_id');
         });
     }
 };
