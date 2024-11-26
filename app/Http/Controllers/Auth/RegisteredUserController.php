@@ -13,6 +13,31 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisteredUserController extends Controller
 {
+    // funzione di riacquisizione account da SoftDelete
+    public function create(array $input) {
+        // check di utenti cancellati con soft delete
+        $user = User::onlyTrashed()->where('email', $input['email'])->first();
+
+        // Ripristina utente
+        if($user){
+            // Recupero utente
+            $user->restore();
+
+            // Agiorna dati se utente si registra con valori diversi
+            $user->update([
+                'username'=>$input['username'],
+                'email'=>$input['email'],
+                'password'=>Hash::make($input['password']),
+                'restaurant_name'=>$input['restaurant_name'],
+                'address'=>$input['address'],
+                'partita_iva'=>$input['partita_iva'],
+                'cuisine_type'=>$input['cuisine_type'],
+                'image'=>$input['image'],
+            ]);
+            return $user;
+        }
+    }
+
     public function showRegistrationForm()
     {
         $categories = Category::all();

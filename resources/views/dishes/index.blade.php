@@ -3,7 +3,7 @@
 @section('page-title', 'Menù Piatti')
 
 @section('main-content')
-    <div class="container py-5">
+    <div class="container py-5 vh-100">
         <h1 class>Menù Piatti</h1>
 
         @if ($dishes->isEmpty())
