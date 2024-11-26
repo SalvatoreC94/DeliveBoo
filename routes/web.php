@@ -8,6 +8,8 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('dishes', DishController::class);
 });
 
-
+Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+Route::put('/destroy', [UserController::class, 'destroy'])->name('user.destroy');
 
 
 

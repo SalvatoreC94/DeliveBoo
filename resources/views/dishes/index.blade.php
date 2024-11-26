@@ -3,15 +3,15 @@
 @section('page-title', 'Menù Piatti')
 
 @section('main-content')
-    <div class="container">
-        <h1>Menù Piatti</h1>
+    <div class="container py-5 vh-100">
+        <h1 class>Menù Piatti</h1>
 
         @if ($dishes->isEmpty())
             <p>Nessun piatto disponibile.</p>
         @else
             <div class="row">
                 @foreach ($dishes as $dish)
-                    <div class="col-md-4 mb-3">
+                  <div class="col-md-4 mb-3">
                         <div class="card">
                             <img src="{{ $dish->image }}" class="card-img-top" alt="{{ $dish->name }}">
                             <div class="card-body">
