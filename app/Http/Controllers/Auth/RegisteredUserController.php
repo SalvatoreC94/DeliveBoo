@@ -47,16 +47,23 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string',
+            'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'restaurant_name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
+            'restaurant_name' => 'required|string',
+            'address' => 'required|string',
             'partita_iva' => 'required|digits:11|unique:restaurants,partita_iva',
             'cuisine_type' => 'required|array',
             'cuisine_type.*' => 'integer|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        // Verifica se l'email esiste già
+    if (User::where('email', $request->email)->exists()) {
+        return redirect()->back()
+            ->withInput($request->except('password'))
+            ->withErrors(['email' => 'Questo indirizzo email è già registrato.']);
+    }
 
         $user = User::create([
             'username' => $request->username,
