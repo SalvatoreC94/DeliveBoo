@@ -20,6 +20,10 @@ class DishController extends Controller
         return view('dishes.index', compact('dishes'));
     }
 
+    public function create()
+    {
+        return view('dishes.create');
+    }
 
     public function store(Request $request)
     {

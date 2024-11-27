@@ -1,13 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 
 main {
-    background-color: lightcoral;
+    background-color: #E9F8F5;
 }
 
 .card{
-    height: 550px;
+    height: 500px;
 
     img{
         height: 250px;
+        object-fit: cover;
     }
 }

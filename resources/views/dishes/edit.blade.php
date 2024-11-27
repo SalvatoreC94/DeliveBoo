@@ -3,9 +3,10 @@
 @section('page-title', 'Modifica Piatto')
 
 @section('main-content')
+<div class="container p-5">
     <div class="row">
         <div class="col">
-            <div class="card">
+            <div class="card" style="height: 100%">
                 <div class="card-body">
                     <h1 class="text-center text-info">
                         Modifica Piatto
@@ -44,4 +45,5 @@
             <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna indietro</a>
         </div>
     </div>
+</div>
 @endsection
