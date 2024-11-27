@@ -19,6 +19,22 @@
                                 <p class="card-text">{{ $dish->description }}</p>
                                 <p class="card-text">Prezzo: €{{ number_format($dish->price, 2) }}</p>
                             </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ route('dishes.show', ['dish' => $dish->id]) }}" class="btn btn-primary me-2 mb-2">
+                                    Guarda!
+                                </a>
+                                <a href="{{ route('dishes.edit', ['dish' => $dish->id]) }}" class="btn btn-warning me-2 mb-2">
+                                    Modifica
+                                </a>
+                                <form onsubmit="return confirm('Attenzione! Stai cancellando questo elemento, vuoi continuare?')" action="{{ route('dishes.destroy', ['dish' => $dish->id]) }}" class="d-inline-block me-2 mb-2">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">
+                                        Elimina
+                                    </button>
+                                </form>
+                            </div>
+                            
                         </div>
                     </div>
                 @endforeach
