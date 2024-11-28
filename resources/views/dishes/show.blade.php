@@ -7,13 +7,10 @@
         <div class="row">
             <div class="col-5">
                 <div class="card mb-3" style="max-width: 540px;">
-                    <img src="{{ $dish->image }}" class="card-img-top" alt="{{ $dish->name }}">
+                    @if ($dish->image)
+                        <img src="{{ asset('storage/' . $dish->image) }}" class="card-img-top" alt="{{ $dish->name }}">
+                    @endif
                     <div class="row g-0">
-                        {{-- <div class="col-md-4">
-                            @if (isset($dish->image))
-                                <img src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}" style="max-width: 250px">
-                            @endif
-                        </div> --}}
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">
@@ -32,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-4">
                 <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna indietro</a>
             </div>
