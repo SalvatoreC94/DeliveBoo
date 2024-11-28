@@ -17,7 +17,8 @@ return new class extends Migration {
             $table->decimal('price', 8, 2);
             $table->text('image')->nullable();
             $table->boolean('visibility')->default(true);
-            $table->foreignId('restaurant_id')->nullable()->default(1)->constrained('restaurants')->onDelete('cascade');
+            // $table->foreignId('restaurant_id')->nullable()->default(1)->constrained('restaurants')->onDelete('cascade');
+            $table->foreignId('restaurant_id')->constrained('restaurants')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });

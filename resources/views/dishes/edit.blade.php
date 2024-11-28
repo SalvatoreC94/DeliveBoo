@@ -6,7 +6,7 @@
     <div class="container p-5">
         <div class="row">
             <div class="col">
-                <div class="card">
+                <div class="card" style="height: 100%">
                     <div class="card-body">
                         <h1 class="text-center text-info">Modifica Piatto</h1>
                     </div>
