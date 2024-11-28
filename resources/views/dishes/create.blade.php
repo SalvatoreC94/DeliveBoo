@@ -85,11 +85,21 @@
                     </div>
                     
                     <div class="mb-4">
-                        <label for="category_id" class="form-label">Selezione Categoria</label>
+                        {{-- <label for="category_id" class="form-label">Selezione Categoria</label>
                         <select class="form-control" id="category_id" name="category_id" required>
                             <option value=""></option>
-                            @foreach ($dishes as $dish)
-                                <option value="category_id"> {{ $dish->category_id }} </option>
+                            @foreach ($categories as $category)
+                                <option value="category_id"> {{ $category->name }} </option>
+                            @endforeach
+                        </select> --}}
+
+                        <label for="category_id" class="form-label">Seleziona Categoria</label>
+                        <select class="form-control" id="category_id" name="category_id" required>
+                            <option value="" disabled>Seleziona una categoria</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">
+                                    {{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                         

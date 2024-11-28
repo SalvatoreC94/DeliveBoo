@@ -23,8 +23,11 @@ class DishController extends Controller
 
     public function create()
     {
+        // return view('dishes.create', compact('dishes')); // Passa la variabile alla vista
+        
         $dishes = Dish::all(); // Recupera tutti i piatti dal database
-        return view('dishes.create', compact('dishes')); // Passa la variabile alla vista
+        $categories = Category::all(); // Recupera tutte le categorie
+        return view('dishes.create', compact('dishes', 'categories'));
     }
 
     public function store(Request $request)
@@ -64,7 +67,9 @@ class DishController extends Controller
 
     public function edit(Dish $dish)
     {
-        return view('dishes.edit', compact('dish'));
+        // return view('dishes.edit', compact('dish'));
+        $categories = Category::all(); // Recupera tutte le categorie
+        return view('dishes.edit', compact('dish', 'categories'));
     }
 
     public function update(Request $request, Dish $dish)
