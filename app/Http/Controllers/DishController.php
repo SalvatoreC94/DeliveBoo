@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Dish;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -24,33 +23,34 @@ class DishController extends Controller
 
     public function create()
     {
-        return view('dishes.create');
+        $dishes = Dish::all(); // Recupera tutti i piatti dal database
+        return view('dishes.create', compact('dishes')); // Passa la variabile alla vista
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string|max:1000',
+            'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'visibility' => 'required|boolean',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         $restaurant = auth()->user()->restaurant;
 
-        if (!$restaurant) {
-            return redirect()->route('home')->with('error', 'Non hai un ristorante associato.');
-        }
+        $imagePath = $request->file('image')
+            ? $request->file('image')->store('dishes', 'public')
+            : null;
 
-        $imagePath = $this->handleImageUpload($request);
-
+        // $category = Category::all();
         Dish::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
             'image' => $imagePath,
-            'visibility' => $request->visibility,
+            'visibility' => $request->has('visibility'),
+            'category_id' => $request->category_id,
             'restaurant_id' => $restaurant->id,
         ]);
 
@@ -59,66 +59,38 @@ class DishController extends Controller
 
     public function show(Dish $dish)
     {
-        $this->authorizeDish($dish);
-
         return view('dishes.show', compact('dish'));
     }
 
     public function edit(Dish $dish)
     {
-        $this->authorizeDish($dish);
-
         return view('dishes.edit', compact('dish'));
     }
 
     public function update(Request $request, Dish $dish)
     {
-        $this->authorizeDish($dish);
-
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string|max:1000',
+            'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'visibility' => 'required|boolean',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         if ($request->hasFile('image')) {
-            if ($dish->image) {
-                Storage::disk('public')->delete($dish->image);
-            }
-            $dish->image = $this->handleImageUpload($request);
+            $imagePath = $request->file('image')->store('dishes', 'public');
+            $dish->image = $imagePath;
         }
 
-        $dish->update($request->only('name', 'description', 'price', 'visibility'));
+        $dish->update($request->only('name', 'description', 'price', 'visibility', 'category_id'));
 
         return redirect()->route('dishes.index')->with('success', 'Piatto aggiornato con successo!');
     }
 
     public function destroy(Dish $dish)
     {
-        $this->authorizeDish($dish);
-
-        if ($dish->image) {
-            Storage::disk('public')->delete($dish->image);
-        }
-
         $dish->delete();
 
         return redirect()->route('dishes.index')->with('success', 'Piatto eliminato con successo!');
-    }
-
-    // Funzione privata per gestire l'upload dell'immagine
-    private function handleImageUpload(Request $request)
-    {
-        return $request->file('image') ? $request->file('image')->store('dishes', 'public') : null;
-    }
-
-    // Funzione privata per autorizzare l'accesso ai piatti
-    private function authorizeDish(Dish $dish)
-    {
-        if ($dish->restaurant_id !== auth()->user()->restaurant->id) {
-            abort(403, 'Non sei autorizzato ad accedere a questo piatto.');
-        }
     }
 }
