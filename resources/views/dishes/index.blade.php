@@ -20,7 +20,9 @@
 
         <div class="row">
             @if ($dishes->isEmpty())
-                <p>Nessun piatto disponibile.</p>
+                <div class="text-center mt-5">
+                    <h1 class="display-1 text-success opacity-75">Nessun piatto disponibile.</h1>
+                </div>
             @else
                 @foreach ($dishes as $dish)
               <div class="col-md-4 mb-3">

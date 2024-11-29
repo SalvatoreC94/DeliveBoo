@@ -7,9 +7,16 @@
         <div class="row">
             <div class="col-5">
                 <div class="card mb-3" style="max-width: 540px;">
-                    @if ($dish->image)
-                        <img src="{{ asset('storage/' . $dish->image) }}" class="card-img-top" alt="{{ $dish->name }}">
+
+                    {{-- Visualizzazione del piatto --}}
+                    @if (filter_var($dish->image, FILTER_VALIDATE_URL))
+                        <img src="{{ $dish->image }}" class="card-img-top" alt="{{ $dish->name }}">
+                        @elseif ($dish->image)
+                            <img src="{{ asset('storage/' . $dish->image) }}" class="card-img-top" alt="{{ $dish->name }}">
+                        @else
+                            <img src="{{ asset('images/placeholder.png') }}" class="card-img-top" alt="Immagine non disponibile">
                     @endif
+                    
                     <div class="row g-0">
                         <div class="col-md-8">
                             <div class="card-body">
