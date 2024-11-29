@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,8 +38,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('dishes', DishController::class);
 });
 
-Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
-Route::put('/destroy', [UserController::class, 'destroy'])->name('user.destroy');
+
+
+// Rotta per il form di registrazione
+Route::get('/register-restaurant', [RegisteredUserController::class, 'showRegistrationForm'])->name('restaurant.register');
+
+// Rotta per la creazione dell'utente
+Route::post('/register-restaurant', [RegisteredUserController::class, 'store'])->name('restaurant.store');
+
 
 
 
