@@ -16,4 +16,12 @@
             </div>
         </div>
     </div>
+
+    <!-- Passare l'URL della rotta di registrazione a Vue -->
+    <script>
+        window.Laravel = {!! json_encode(['restaurant_register_url' => route('restaurant.register')]) !!};
+    </script>
+
+    <!-- Includi il tuo script Vue -->
+    <script src="{{ mix('js/app.js') }}"></script>
 @endsection
