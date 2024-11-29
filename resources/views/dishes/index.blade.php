@@ -25,7 +25,14 @@
                 @foreach ($dishes as $dish)
               <div class="col-md-4 mb-3">
                     <div class="card">
+                        @if (filter_var($dish->image, FILTER_VALIDATE_URL))
                         <img src="{{ $dish->image }}" class="card-img-top" alt="{{ $dish->name }}">
+                        @elseif ($dish->image)
+                            <img src="{{ asset('storage/' . $dish->image) }}" class="card-img-top" alt="{{ $dish->name }}">
+                        @else
+                            <img src="{{ asset('images/placeholder.png') }}" class="card-img-top" alt="Immagine non disponibile">
+                        @endif
+
                         <div class="card-body">
                             <h5 class="card-title">{{ $dish->name }}</h5>
                             <p class="card-text">{{ $dish->description }}</p>
