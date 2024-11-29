@@ -38,13 +38,22 @@ Route::middleware('auth')->group(function () {
     Route::resource('dishes', DishController::class);
 });
 
-
+// Rotta per user.profile 
+Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
+Route::delete('/user/id', [UserController::class, 'destroy'])->name('user.destroy');
 
 // Rotta per il form di registrazione
 Route::get('/register-restaurant', [RegisteredUserController::class, 'showRegistrationForm'])->name('restaurant.register');
 
 // Rotta per la creazione dell'utente
 Route::post('/register-restaurant', [RegisteredUserController::class, 'store'])->name('restaurant.store');
+
+// Rotta per il ripristino del piatto
+// Route::post('/dishes/id/restore', [DishController::class, 'restore'])->name('dishes.restore');
+Route::post('/dishes/{id}/restore', [DishController::class, 'restore'])->name('dishes.restore');
+
+// Rotta per eliminare definivamente piatto
+Route::delete('/dishes/{id}/force-delete', [DishController::class, 'forceDestroy'])->name('dishes.forceDestroy');
 
 
 

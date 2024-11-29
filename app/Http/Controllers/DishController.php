@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
         $restaurant = $user->restaurant;
@@ -16,7 +16,16 @@ class DishController extends Controller
             return redirect()->route('home')->with('error', 'Non hai un ristorante associato.');
         }
 
-        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+        // $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+
+        // Filtra in base alla richiesta
+        if ($request->filter == 'trashed') {
+            $dishes = Dish::onlyTrashed()->where('restaurant_id', $restaurant->id)->get();
+        } elseif ($request->filter == 'all') {
+            $dishes = Dish::withTrashed()->where('restaurant_id', $restaurant->id)->get();
+        } else {
+            $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+        }
 
         return view('dishes.index', compact('dishes'));
     }
@@ -89,13 +98,36 @@ class DishController extends Controller
 
         $dish->update($request->only('name', 'description', 'price', 'visibility', 'category_id'));
 
-        return redirect()->route('dishes.index')->with('success', 'Piatto aggiornato con successo!');
+        return redirect()->route('dishes.show', ['dish' => $dish->id])->with('success', 'Piatto aggiornato con successo!');
     }
 
     public function destroy(Dish $dish)
     {
         $dish->delete();
 
-        return redirect()->route('dishes.index')->with('success', 'Piatto eliminato con successo!');
+        return redirect()->route('dishes.index');
+    }
+
+    // Funzione per il Ripristino
+    public function restore($id)
+    {
+        // Trova il piatto eliminato
+        $dish = Dish::onlyTrashed()->findOrFail($id);
+        
+        // Ripristina il piatto
+        $dish->restore();
+
+        return redirect()->route('dishes.index')->with('success', 'Piatto ripristinato con successo!');
+    }
+
+    public function forceDestroy($id)
+    {
+        // Trova il piatto eliminato
+        $dish = Dish::onlyTrashed()->findOrFail($id); 
+
+        // Elimina definitivamente il piatto
+        $dish->forceDelete(); 
+
+        return redirect()->route('dishes.index')->with('success', 'Piatto eliminato definitivamente!');
     }
 }

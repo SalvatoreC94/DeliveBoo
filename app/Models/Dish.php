@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// SoftDelete
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Dish extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -15,9 +18,12 @@ class Dish extends Model
         'price',
         'image',
         'visibility',
-        'restaurant_id',
         'category_id',
+        'restaurant_id',
     ];
+
+    // Campo per la cancellazione soft
+    protected $dates = ['deleted_at']; 
 
     // Relazione molti a uno con il ristorante
     public function restaurant()
