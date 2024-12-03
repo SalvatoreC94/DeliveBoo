@@ -15,7 +15,7 @@
 
             <!-- Nome Utente -->
             <div class="mb-3">
-                <label for="username" class="form-label">Nome Utente</label>
+                <label for="username" class="form-label">Nome Utente <span class="text-danger">*</span></label>
                 <input type="text" name="username" id="username" class="form-control" value="{{ old('username') }}"
                     required autocomplete="username" minlength="3" maxlength="50">
                 <div class="invalid-feedback">Il nome utente deve avere tra 3 e 50 caratteri.</div>
@@ -23,7 +23,7 @@
 
             <!-- Email -->
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                 <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}"
                     required autocomplete="email">
                 <div class="invalid-feedback">Inserisci un indirizzo email valido.</div>
@@ -31,7 +31,7 @@
 
             <!-- Password -->
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
+                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                 <input type="password" name="password" id="password" class="form-control" required
                     autocomplete="new-password" minlength="6" maxlength="100">
                 <div class="invalid-feedback">La password deve avere almeno 6 caratteri.</div>
@@ -39,7 +39,8 @@
 
             <!-- Conferma Password -->
             <div class="mb-3">
-                <label for="password_confirmation" class="form-label">Conferma Password</label>
+                <label for="password_confirmation" class="form-label">Conferma Password <span
+                        class="text-danger">*</span></label>
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required
                     autocomplete="new-password">
                 <div class="invalid-feedback">La password di conferma deve corrispondere alla password.</div>
@@ -47,7 +48,7 @@
 
             <!-- Nome Ristorante -->
             <div class="mb-3">
-                <label for="restaurant_name" class="form-label">Nome Ristorante</label>
+                <label for="restaurant_name" class="form-label">Nome Ristorante <span class="text-danger">*</span></label>
                 <input type="text" name="restaurant_name" id="restaurant_name" class="form-control"
                     value="{{ old('restaurant_name') }}" required autocomplete="organization" minlength="3"
                     maxlength="100">
@@ -56,7 +57,7 @@
 
             <!-- Indirizzo -->
             <div class="mb-3">
-                <label for="address" class="form-label">Indirizzo</label>
+                <label for="address" class="form-label">Indirizzo <span class="text-danger">*</span></label>
                 <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}"
                     required autocomplete="street-address" minlength="5" maxlength="150">
                 <div class="invalid-feedback">L'indirizzo deve avere tra 5 e 150 caratteri.</div>
@@ -64,7 +65,7 @@
 
             <!-- Partita IVA -->
             <div class="mb-3">
-                <label for="partita_iva" class="form-label">Partita IVA</label>
+                <label for="partita_iva" class="form-label">Partita IVA <span class="text-danger">*</span></label>
                 <input type="text" name="partita_iva" id="partita_iva" class="form-control"
                     value="{{ old('partita_iva') }}" required pattern="\d{11}" minlength="11" maxlength="11"
                     autocomplete="tax-number">
@@ -73,7 +74,7 @@
 
             <!-- Tipologia di Cucina -->
             <div class="mb-3">
-                <label class="form-label">Tipologia di Cucina</label>
+                <label class="form-label">Tipologia di Cucina <span class="text-danger">*</span></label>
                 <div id="cuisine_type">
                     @foreach ($categories as $category)
                         <div class="form-check">
