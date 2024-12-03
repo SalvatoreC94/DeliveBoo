@@ -42,12 +42,36 @@
             </a>
         </div> 
         
+        {{-- AGGIUNGI PIATTO --}}
         <div class="row my-2">
             <a href="{{ route('dishes.create') }}" class="btn btn-success mb-2">
                 Aggiungi Piatto
             </a>
         </div>
 
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <h1> {{ $restaurant->name }} </h1>
+                        </div>
+                        <div>
+                            {{-- Visualizzazione Piatto --}}
+                            @if (filter_var($restaurant->image, FILTER_VALIDATE_URL))
+                                    <img src="{{ $restaurant->image }}" class="card-img-top" alt="{{ $restaurant->name }}">
+                                @elseif ($restaurant->image)
+                                    <img src="{{ asset('storage/' . $restaurant->image) }}" class="card-img-top" alt="{{ $restaurant->name }}">
+                                @else
+                                    <img src="{{ asset('images/placeholder.png') }}" class="card-img-top" alt="Immagine non inserita">
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- SEZIONE PIATTI --}}
         <div class="row">
             @if ($dishes->isEmpty())
                 <div class="text-center mt-5">
@@ -113,6 +137,7 @@
             @endif
         </div>
 
+        {{-- AGGIUNGI PIATTO --}}
         <div class="row my-2">
             <a href="{{ route('dishes.create') }}" class="btn btn-success mb-2">
                 Aggiungi Piatto

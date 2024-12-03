@@ -1,9 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Dish;
 use Illuminate\Http\Request;
+
+// Models
+use App\Models\{
+    Category,
+    Dish
+};
 
 class DishController extends Controller
 {
@@ -15,9 +19,7 @@ class DishController extends Controller
         if (!$restaurant) {
             return redirect()->route('home')->with('error', 'Non hai un ristorante associato.');
         }
-
-        // $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
-
+        
         // Filtra in base alla richiesta
         if ($request->filter == 'trashed') {
             $dishes = Dish::onlyTrashed()->where('restaurant_id', $restaurant->id)->get();
@@ -35,7 +37,7 @@ class DishController extends Controller
         $allCount = Dish::where('restaurant_id', $restaurant->id)->count();
 
 
-        return view('dishes.index', compact('dishes', 'trashedCount', 'activeCount', 'allCount'));
+        return view('dishes.index', compact('dishes', 'restaurant', 'trashedCount', 'activeCount', 'allCount'));
     }
 
     public function create()

@@ -5,6 +5,9 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
+// INTERCETTA ERRORE DIMENSIONE IMMAGINE
+use Illuminate\Http\Exceptions\PostTooLargeException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -27,4 +30,17 @@ class Handler extends ExceptionHandler
             //
         });
     }
-}
+
+
+    // INTERCETTA ERRORE DIMENSIONE IMMAGINE
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof PostTooLargeException) {
+            return response()->json([
+                'message' => 'Il file caricato è troppo grande. Per favore, riprova con un file più piccolo.'
+            ], 413);
+        }
+    
+        return parent::render($request, $exception);
+    }
+};
