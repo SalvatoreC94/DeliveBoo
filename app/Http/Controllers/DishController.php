@@ -27,7 +27,15 @@ class DishController extends Controller
             $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
         }
 
-        return view('dishes.index', compact('dishes'));
+        // Conta i piatti eliminati
+        $trashedCount = Dish::onlyTrashed()->where('restaurant_id', $restaurant->id)->count();
+        // Conta i piatti Attivi
+        $activeCount = Dish::withTrashed()->where('restaurant_id', $restaurant->id)->count();
+        // Conta tutti i piatti
+        $allCount = Dish::where('restaurant_id', $restaurant->id)->count();
+
+
+        return view('dishes.index', compact('dishes', 'trashedCount', 'activeCount', 'allCount'));
     }
 
     public function create()

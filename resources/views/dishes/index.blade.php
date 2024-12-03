@@ -14,9 +14,32 @@
 
         {{-- FILTRO PER RICERCA PIATTI ATTIVI/ELIMINATI --}}
         <div class="mb-3">
-            <a href="{{ route('dishes.index', ['filter' => 'active']) }}" class="btn btn-primary">Piatti Attivi</a>
-            <a href="{{ route('dishes.index', ['filter' => 'trashed']) }}" class="btn btn-warning">Piatti Eliminati</a>
-            <a href="{{ route('dishes.index', ['filter' => 'all']) }}" class="btn btn-secondary">Tutti i Piatti</a>
+            {{-- Filtro piatti Attivi --}}
+            <a href="{{ route('dishes.index', ['filter' => 'active']) }}" class="btn btn-primary">
+                Piatti Attivi
+                {{-- Contatore piatti attiivi --}}
+                @if ($activeCount>0)
+                    <span class="badge bg-danger"> {{ $activeCount }} </span>
+                @endif
+            </a>
+
+            {{-- Filtro Piatti eliminati --}}
+            <a href="{{ route('dishes.index', ['filter' => 'trashed']) }}" class="btn btn-warning">
+                Piatti Eliminati
+                {{-- Contatore piatti Eliminati --}}
+                @if ($trashedCount > 0)
+                    <span class="badge bg-danger">{{ $trashedCount }}</span>
+                @endif
+            </a>
+
+            {{-- Filtro tutti i piatti --}}
+            <a href="{{ route('dishes.index', ['filter' => 'all']) }}" class="btn btn-secondary">
+                Tutti i Piatti
+                {{-- Contatore tutti i piatti --}}
+                @if ($allCount>0)
+                    <span class="badge bg-danger"> {{ $allCount }} </span>
+                @endif
+            </a>
         </div> 
         
         <div class="row my-2">
