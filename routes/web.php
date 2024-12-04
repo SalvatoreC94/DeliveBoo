@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,6 +55,8 @@ Route::post('/dishes/{id}/restore', [DishController::class, 'restore'])->name('d
 
 // Rotta per eliminare definivamente piatto
 Route::delete('/dishes/{id}/force-delete', [DishController::class, 'forceDestroy'])->name('dishes.forceDestroy');
+
+
 
 
 
