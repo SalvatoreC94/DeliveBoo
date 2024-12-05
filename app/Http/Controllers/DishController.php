@@ -19,7 +19,7 @@ class DishController extends Controller
         if (!$restaurant) {
             return redirect()->route('home')->with('error', 'Non hai un ristorante associato.');
         }
-        
+
         // Filtra in base alla richiesta
         if ($request->filter == 'trashed') {
             $dishes = Dish::onlyTrashed()->where('restaurant_id', $restaurant->id)->get();
@@ -43,7 +43,7 @@ class DishController extends Controller
     public function create()
     {
         // return view('dishes.create', compact('dishes')); // Passa la variabile alla vista
-        
+
         $dishes = Dish::all(); // Recupera tutti i piatti dal database
         $categories = Category::all(); // Recupera tutte le categorie
         return view('dishes.create', compact('dishes', 'categories'));
@@ -123,7 +123,7 @@ class DishController extends Controller
     {
         // Trova il piatto eliminato
         $dish = Dish::onlyTrashed()->findOrFail($id);
-        
+
         // Ripristina il piatto
         $dish->restore();
 
@@ -133,10 +133,10 @@ class DishController extends Controller
     public function forceDestroy($id)
     {
         // Trova il piatto eliminato
-        $dish = Dish::onlyTrashed()->findOrFail($id); 
+        $dish = Dish::onlyTrashed()->findOrFail($id);
 
         // Elimina definitivamente il piatto
-        $dish->forceDelete(); 
+        $dish->forceDelete();
 
         return redirect()->route('dishes.index')->with('success', 'Piatto eliminato definitivamente!');
     }
