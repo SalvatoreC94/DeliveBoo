@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Restaurant;
 use App\Models\Category;
-use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -14,25 +13,26 @@ use Illuminate\Support\Facades\Auth;
 class RegisteredUserController extends Controller
 {
     // funzione di riacquisizione account da SoftDelete
-    public function create(array $input) {
+    public function create(array $input)
+    {
         // check di utenti cancellati con soft delete
         $user = User::onlyTrashed()->where('email', $input['email'])->first();
 
         // Ripristina utente
-        if($user){
+        if ($user) {
             // Recupero utente
             $user->restore();
 
             // Agiorna dati se utente si registra con valori diversi
             $user->update([
-                'username'=>$input['username'],
-                'email'=>$input['email'],
-                'password'=>Hash::make($input['password']),
-                'restaurant_name'=>$input['restaurant_name'],
-                'address'=>$input['address'],
-                'partita_iva'=>$input['partita_iva'],
-                'cuisine_type'=>$input['cuisine_type'],
-                'image'=>$input['image'],
+                'username' => $input['username'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password']),
+                'restaurant_name' => $input['restaurant_name'],
+                'address' => $input['address'],
+                'partita_iva' => $input['partita_iva'],
+                'cuisine_type' => $input['cuisine_type'],
+                'image' => $input['image'],
             ]);
             return $user;
         }
@@ -54,27 +54,30 @@ class RegisteredUserController extends Controller
             'address' => 'required|string',
             'partita_iva' => 'required|digits:11|unique:restaurants,partita_iva',
             'cuisine_type' => 'required|array',
-            'cuisine_type.*' => 'integer|exists:categories,id',
+            'cuisine_type.*' => 'integer|exists:categories,id', // Associa le categorie al ristorante
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Verifica se l'email esiste già
-    if (User::where('email', $request->email)->exists()) {
-        return redirect()->back()
-            ->withInput($request->except('password'))
-            ->withErrors(['email' => 'Questo indirizzo email è già registrato.']);
-    }
+        if (User::where('email', $request->email)->exists()) {
+            return redirect()->back()
+                ->withInput($request->except('password'))
+                ->withErrors(['email' => 'Questo indirizzo email è già registrato.']);
+        }
 
+        // Crea l'utente
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        // Gestione dell'immagine del ristorante (se presente)
         $imagePath = $request->hasFile('image')
             ? $request->file('image')->store('restaurants', 'public')
             : null;
 
+        // Crea il ristorante associato all'utente
         $restaurant = Restaurant::create([
             'name' => $request->restaurant_name,
             'address' => $request->address,
@@ -83,34 +86,15 @@ class RegisteredUserController extends Controller
             'user_id' => $user->id,
         ]);
 
-        $restaurant->categories()->sync($request->cuisine_type);
+        // Associa la categoria selezionata al ristorante
+        $restaurant->categories()->sync($request->cuisine_type); // Solo le categorie, nessun piatto associato
 
-        // Popola i piatti dal config
-        $this->populateDishesFromConfig($restaurant, $request->cuisine_type);
+        // Non popolare piatti, lascia che l'utente aggiunga piatti separatamente
 
+        // Login dell'utente appena creato
         Auth::login($user);
 
+        // Redirigi alla dashboard
         return redirect()->route('admin.dashboard')->with('success', 'Registrazione completata con successo!');
-    }
-
-    private function populateDishesFromConfig(Restaurant $restaurant, array $categoryIds)
-    {
-        $configDishes = config('dishes');
-
-        $filteredDishes = array_filter($configDishes, function ($dish) use ($categoryIds) {
-            return in_array($dish['category_id'], $categoryIds);
-        });
-
-        foreach ($filteredDishes as $dish) {
-            Dish::create([
-                'name' => $dish['name'],
-                'description' => $dish['description'],
-                'price' => $dish['price'],
-                'image' => $dish['image'],
-                'visibility' => $dish['visibility'],
-                'restaurant_id' => $restaurant->id,
-                'category_id' => $dish['category_id'],
-            ]);
-        }
     }
 }
