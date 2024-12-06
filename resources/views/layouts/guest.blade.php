@@ -41,7 +41,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">Register</a>
                             </li>
                             <li>
-                                <a href="{{ env('FRONTEND_URL', 'http://localhost:5174') }}"
+                                <a href="{{ env('FRONTEND_URL', 'http://localhost:5173') }}"
                                     class="btn btn-link ms-auto no-underline">
                                     Home
                                 </a>

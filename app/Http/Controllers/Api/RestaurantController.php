@@ -25,9 +25,4 @@ class RestaurantController extends Controller
         return response()->json($restaurant);
     }
 
-
-
-
-
-
 }
