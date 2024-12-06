@@ -9,10 +9,11 @@
     <title>@yield('page-title') | {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    @vite('resources/js/app.js')
+    @vite('resources/js/app.js') <!-- Questo include il JS, ma potrebbe esserci un altro JS incluso più in basso -->
 </head>
 
 <body>
+    <!-- Navbar principale -->
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <div class="container">
@@ -46,52 +47,63 @@
                                     Home
                                 </a>
                             </li>
-
                         @endauth
                     </ul>
-        <!-- Scripts -->
-        @vite('resources/js/app.js')
-        
-        <!--Adobe Font-->
-        <link rel="stylesheet" href="https://use.typekit.net/lyi7tbf.css">
+                </div>
+            </div>
+        </nav>
+    </header>
 
+   
+    
 
-    </head>
-    <body>
-        <header>
-            <nav class="navbar shadow navbar-expand-lg d-none">
-                <div class="container ">
-                    
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarText">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                            @auth
-                                <li class="nav-item">
-                                    <img class="logo-nav" src="{{ asset('../storage/images/Logo-deliveBoo.svg') }}" alt="">
-                                </li>
-                            @endauth
-                        </ul>
+    <!-- Adobe Font - Solo se necessario -->
+    <link rel="stylesheet" href="https://use.typekit.net/lyi7tbf.css"> <!-- Rimuovere se non utilizzi questo font -->
+    
+
+    <!-- Navbar duplicata: probabile errore o codice non necessario -->
+    <!-- Questa seconda navbar è simile alla prima, ma è nascosta grazie alla classe d-none. Potresti non aver bisogno di questa seconda navbar -->
+
+    <!-- Seconda navbar (probabilmente duplicata e nascosta) -->
+    <header>
+        <nav class="navbar shadow navbar-expand-lg d-none">
+            <div class="container ">
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        @auth
+                            <li class="nav-item">
+                                <!-- Logo in questa navbar non sarà visibile perché la navbar è nascosta con d-none -->
+                                <img class="logo-nav" src="{{ asset('../storage/images/Logo-deliveBoo.svg') }}" alt="">
+                            </li>
+                        @endauth
+                    </ul>
 
                     @auth
+                        <!-- Form per il logout -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                                <button type="submit" class="logout button-menu">
-                                    Log Out
-                                </button>
-                            </form>
-                        @endauth
-                    </div>
+                            <button type="submit" class="logout button-menu">
+                                Log Out
+                            </button>
+                        </form>
+                    @endauth
                 </div>
-            </nav>
-        </header>
-
-        <main class="">
-            <div class="container">
-                @yield('main-content')
             </div>
-        </main>
-    </body>
+        </nav>
+    </header>
+    <!-- Fine della seconda navbar -->
+
+    <!-- Contenuto principale -->
+    <main class="">
+        <div class="container">
+            @yield('main-content') <!-- Qui andranno inseriti i contenuti dinamici della pagina -->
+        </div>
+    </main>
+
+</body>
 </html>

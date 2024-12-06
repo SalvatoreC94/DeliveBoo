@@ -18,8 +18,6 @@
                     Tutti i Piatti
                 </a>
             
-            
-            
                 {{-- Filtro piatti Attivi --}}
                 <a href="{{ route('dishes.index', ['filter' => 'active']) }}" class="button-menu text-decoration-none me-3 ibm-plex-mono-regular position-relative">
                     Piatti Attivi
@@ -28,8 +26,6 @@
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ibm-plex-mono-regular"> {{ $activeCount }} </span>
                     @endif
                 </a>
-            
-            
             
                 {{-- Filtro Piatti eliminati --}}
                 <a href="{{ route('dishes.index', ['filter' => 'trashed']) }}" class="button-menu text-decoration-none ibm-plex-mono-regular position-relative">
@@ -49,8 +45,6 @@
             </div>
             
         </div> 
-        
-
         
             <div class="card mb-4">
                 <div class="row g-0">
