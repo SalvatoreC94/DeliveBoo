@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
+<head>
+    <!--Adobe Font-->
+    <link rel="stylesheet" href="https://use.typekit.net/lyi7tbf.css">
+</head> 
+
 @section('page-title', 'Crea Piatto')
 
 @section('main-content')
     <div class="container py-5">
         <div class="row">
             <div class="col">
-                <div class="card" style="height: 100%">
-                    <div class="card-body">
-                        <h1 class="text-center text-success">Crea Nuovo Piatto</h1>
-                    </div>
+                <div>
+                    <h1 class="my-title text-center">Crea Nuovo Piatto</h1>
                 </div>
             </div>
         </div>
@@ -32,7 +35,7 @@
                     @csrf
 
                     <div class="mb-4">
-                        <label for="name" class="form-label">Nome del piatto</label>
+                        <label for="name" class="form-label ibm-plex-mono-regular">Nome del piatto</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
                     
                         @error('name')
@@ -42,8 +45,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="description" class="form-label">Descrizione del piatto</label>
-                        <textarea class="form-control" id="description" name="description" value="{{ old('description') }}"></textarea>
+                        <label for="description" class="form-label ibm-plex-mono-regular">Descrizione del piatto</label>
+                        <textarea class="form-control ibm-plex-mono-regular" id="description" name="description" value="{{ old('description') }}"></textarea>
                     
                         @error('description')
                             <div class="alert alert-danger">
@@ -52,8 +55,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="price" class="form-label">Prezzo del piatto</label>
-                        <input type="number" class="form-control" id="price" name="price" required min="0" step="0.01" value="{{ old('price') }}">
+                        <label for="price" class="form-label ibm-plex-mono-regular">Prezzo del piatto</label>
+                        <input type="number" class="form-control ibm-plex-mono-regular" id="price" name="price" required min="0" step="0.01" value="{{ old('price') }}">
                     
                         @error('price')
                             <div class="alert alert-danger">
@@ -62,8 +65,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="image" class="form-label">Carica Immagine</label>
-                        <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}">
+                        <label for="image" class="form-label ibm-plex-mono-regular">Carica Immagine</label>
+                        <input type="file" class="form-control ibm-plex-mono-regular" id="image" name="image" value="{{ old('image') }}">
                         
                         @error('image')
                             <div class="alert alert-danger">
@@ -72,8 +75,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="visibility" class="form-label">Visibilità</label>
-                        <select class="form-control" id="visibility" name="visibility" required>
+                        <label for="visibility" class="form-label ibm-plex-mono-regular">Visibilità</label>
+                        <select class="form-control ibm-plex-mono-regular" id="visibility" name="visibility" required>
                             <option value="1">Visibile</option>
                             <option value="0">Non Visibile</option>
                         </select>
@@ -85,15 +88,15 @@
                     </div>
                     
                     <div class="mb-4">
-                        {{-- <label for="category_id" class="form-label">Selezione Categoria</label>
-                        <select class="form-control" id="category_id" name="category_id" required>
+                        {{-- <label for="category_id" class="form-label ibm-plex-mono-regular">Selezione Categoria</label>
+                        <select class="form-control ibm-plex-mono-regular" id="category_id" name="category_id" required>
                             <option value=""></option>
                             @foreach ($categories as $category)
                                 <option value="category_id"> {{ $category->name }} </option>
                             @endforeach
                         </select> --}}
 
-                        <label for="category_id" class="form-label">Seleziona Categoria</label>
+                        <label for="category_id" class="form-label ibm-plex-mono-regular">Seleziona Categoria</label>
                         <select class="form-control" id="category_id" name="category_id" required>
                             <option value="" disabled>Seleziona una categoria</option>
                             @foreach ($categories as $category)
@@ -109,10 +112,10 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100 my-3">Aggiungi piatto</button>
+                    <button type="submit" class="button-menu-y ibm-plex-mono-regular w-100 my-3">Aggiungi piatto</button>
                 </form>
                 <div class="mt-4">
-                    <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna indietro</a>
+                    <a href="{{ route('dishes.index') }}" class="button-menu text-decoration-none my-1 ibm-plex-mono-regular">Torna indietro</a>
                 </div>
             </div>
         </div>

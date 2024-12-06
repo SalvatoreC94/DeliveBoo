@@ -129,7 +129,7 @@
             </div> --}}
 
             <div class="mt-4">
-                <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna indietro</a>
+                <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna al menu</a>
             </div>
         </div>
     </div>
