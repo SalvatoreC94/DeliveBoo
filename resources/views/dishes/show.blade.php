@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <a href="{{ route('dishes.edit', ['dish' => $dish->id]) }}" class="btn btn-warning me-2 mb-2">
+                            <a href="{{ route('dishes.edit', ['dish' => $dish->id]) }}" class=" button-menu text-decoration-none ibm-plex-mono-regular me-2 mb-2">
                                 Modifica
                             </a>
                         </div>
