@@ -49,26 +49,49 @@
 
                         @endauth
                     </ul>
+        <!-- Scripts -->
+        @vite('resources/js/app.js')
+        
+        <!--Adobe Font-->
+        <link rel="stylesheet" href="https://use.typekit.net/lyi7tbf.css">
+
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar shadow navbar-expand-lg d-none">
+                <div class="container ">
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                            @auth
+                                <li class="nav-item">
+                                    <img class="logo-nav" src="{{ asset('../storage/images/Logo-deliveBoo.svg') }}" alt="">
+                                </li>
+                            @endauth
+                        </ul>
 
                     @auth
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <button type="submit" class="btn btn-outline-danger">
-                                Log Out
-                            </button>
-                        </form>
-                    @endauth
+                                <button type="submit" class="logout button-menu">
+                                    Log Out
+                                </button>
+                            </form>
+                        @endauth
+                    </div>
                 </div>
+            </nav>
+        </header>
+
+        <main class="">
+            <div class="container">
+                @yield('main-content')
             </div>
-        </nav>
-    </header>
-
-    <main class="py-4">
-        <div class="container">
-            @yield('main-content')
-        </div>
-    </main>
-</body>
-
+        </main>
+    </body>
 </html>
