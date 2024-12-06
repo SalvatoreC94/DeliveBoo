@@ -95,13 +95,3 @@
         </main>
     </body>
 </html>
-
-<style>
-    .logout{
-        font-size: 15px;
-    }
-    .navbar{
-  background-color: white;
-  box-shadow: 
- }
-</style>
