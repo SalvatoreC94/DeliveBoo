@@ -4,7 +4,7 @@
 
 @section('main-content')
     <div class="container py-5">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-5">
                 <div class="card mb-3" style="max-width: 540px;">
 
@@ -33,12 +33,17 @@
                                 </h6>
                             </div>
                         </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="{{ route('dishes.edit', ['dish' => $dish->id]) }}" class="btn btn-warning me-2 mb-2">
+                                Modifica
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="mt-4">
-                <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna indietro</a>
+                <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna al menu</a>
             </div>
         </div>
     </div>
