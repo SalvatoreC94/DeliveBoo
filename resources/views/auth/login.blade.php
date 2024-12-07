@@ -8,18 +8,11 @@
 </head>
 
 @section('main-content')
-    <div class="image-login">
-
-        <div class="container position-relative">
-            <div class="">
-                <a href="">
-                    <img src="{{ asset('storage/images/logo-deliveBoo.svg')}}" class="logo m-4 position-absolute start-0" alt="deliveBooLogo">
-                </a>
-            </div>
+    <section class="vh-100">
             
 
             <div class="row h-100 d-flex justify-content-between">
-                <div class="col-5 d-flex flex-column justify-content-center">
+                <div class="col-12 col-lg-5 col-md-4  d-flex flex-column justify-content-center">
                     <h2 class="text-center my-title">Esegui il login</h2>
                     @if (session('error'))
                         <div class="alert alert-danger">
@@ -99,21 +92,11 @@
         
         
     
-    </div>
+</section>
 
     <!--Stile-->
 
     <style scoped>
-
-        .image-login{ 
-            background-image: url('{{ asset('../storage/images/background-pattern-Login.png') }}');
-            background-position: ;
-            background-size: contain;
-            width: 100%;
-            height: 860px;
-            padding: 0 auto;
-            margin: 0 auto;
-        }
 
         .card{
             padding:20px;

@@ -8,7 +8,7 @@
             <h1>Nome Utente:
                 {{ Auth::user()->username }}
             </h1>
-            <div class="card border-dark mb-3  text-start my-4" style="max-width: 25rem; height: 100%;">
+            <div class="card  border-dark mb-3  text-start my-4" style="max-width: 25rem; height: 100%;">
                 <div class="card-header text-center">
                     {{ Auth::user()->username }}
                 </div>

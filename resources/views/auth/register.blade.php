@@ -60,13 +60,13 @@
                     </div>
                 </div>
                 
-                <div class="second-card d-flex flex-grow-1 p-5">
+                <div class="second-card row d-flex flex-grow-1  p-5">
 
                     <div class="col-12 d-flex flex-wrap">
 
-                        <div class="d-flex">
+                        <div class="row d-flex">
                             <!-- Nome Ristorante -->
-                            <div class="mb-3 me-4">
+                            <div class="col-12 mb-3 me-4">
                                 <label for="restaurant_name" class="form-label ibm-plex-mono-semibold">Nome Ristorante <span class="text-danger">*</span></label>
                                 <input type="text" name="restaurant_name" id="restaurant_name" class="form-control"
                                     value="{{ old('restaurant_name') }}" required autocomplete="organization" minlength="3"
@@ -75,7 +75,7 @@
                             </div>
 
                             <!-- Indirizzo -->
-                            <div class="mb-3 me-4">
+                            <div class="col-12 mb-3 me-4">
                                 <label for="address" class="form-label ibm-plex-mono-semibold">Indirizzo <span class="text-danger">*</span></label>
                                 <input type="text" name="address" id="address" class="form-control" value="{{ old('address') }}"
                                     required autocomplete="street-address" minlength="5" maxlength="150">
@@ -83,7 +83,7 @@
                             </div>
 
                             <!-- Partita IVA -->
-                            <div class="mb-3 ">
+                            <div class="col-12 mb-3">
                                 <label for="partita_iva" class="form-label ibm-plex-mono-semibold">Partita IVA <span class="text-danger">*</span></label>
                                 <input type="text" name="partita_iva" id="partita_iva" class="form-control"
                                     value="{{ old('partita_iva') }}" required pattern="\d{11}" minlength="11" maxlength="11"
@@ -124,8 +124,8 @@
                 <button type="submit" class="button-menu ibm-plex-mono-regular my-3 ">Registrati</button>
 
                 <!-- Link al Login -->
-                <div class="login-register">
-                    <p class="my-3 ibm-plex-mono-regular text-center">Hai già un account? <a class="link" href="{{ route('login') }}">Accedi qui</a></p>
+                <div class="login-register mb-5">
+                    <p class="my-2 ibm-plex-mono-regular text-center">Hai già un account? <a class="link" href="{{ route('login') }}">Accedi qui</a></p>
                 </div>
             </div>
         </form>
@@ -133,14 +133,12 @@
 </div>
    
     <style scoped>
-        
-        
         .first-card{
             border: none;
             border-radius: 30px;
             box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.1);
             width: 450px;
-            height: 500px;
+            height: 400px;
             background-color: white;
         }
         .second-card{
@@ -148,7 +146,7 @@
             border-radius: 30px;
             box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.1);
             width: 450px;
-            height: 500px;
+            min-height: 500px;
             background-color: white;
         }
         .login-register{
