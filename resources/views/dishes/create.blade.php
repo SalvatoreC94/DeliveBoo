@@ -3,7 +3,7 @@
 <head>
     <!--Adobe Font-->
     <link rel="stylesheet" href="https://use.typekit.net/lyi7tbf.css">
-</head> 
+</head>
 
 @section('page-title', 'Crea Piatto')
 
@@ -35,9 +35,9 @@
                     @csrf
 
                     <div class="mb-4">
-                        <label for="name" class="form-label ibm-plex-mono-regular">Nome del piatto</label>
+                        <label for="name" class="form-label ibm-plex-mono-regular">Nome del piatto <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
-                    
+
                         @error('name')
                             <div class="alert alert-danger">
                                 {{ $message }}</div>
@@ -45,9 +45,9 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="description" class="form-label ibm-plex-mono-regular">Descrizione del piatto</label>
+                        <label for="description" class="form-label ibm-plex-mono-regular">Descrizione del piatto <span class="text-danger">*</span></label>
                         <textarea class="form-control ibm-plex-mono-regular" id="description" name="description" value="{{ old('description') }}"></textarea>
-                    
+
                         @error('description')
                             <div class="alert alert-danger">
                                 {{ $message }}</div>
@@ -55,9 +55,9 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="price" class="form-label ibm-plex-mono-regular">Prezzo del piatto</label>
+                        <label for="price" class="form-label ibm-plex-mono-regular">Prezzo del piatto <span class="text-danger">*</span></label>
                         <input type="number" class="form-control ibm-plex-mono-regular" id="price" name="price" required min="0" step="0.01" value="{{ old('price') }}">
-                    
+
                         @error('price')
                             <div class="alert alert-danger">
                                 {{ $message }}</div>
@@ -65,9 +65,9 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="image" class="form-label ibm-plex-mono-regular">Carica Immagine</label>
+                        <label for="image" class="form-label ibm-plex-mono-regular">Carica Immagine <span class="text-danger">*</span></label>
                         <input type="file" class="form-control ibm-plex-mono-regular" id="image" name="image" value="{{ old('image') }}">
-                        
+
                         @error('image')
                             <div class="alert alert-danger">
                                 {{ $message }}</div>
@@ -80,13 +80,13 @@
                             <option value="1">Visibile</option>
                             <option value="0">Non Visibile</option>
                         </select>
-                        
+
                         @error('visibility')
                             <div class="alert alert-danger">
                                 {{ $message }}</div>
                         @enderror
                     </div>
-                    
+
                     <div class="mb-4">
                         {{-- <label for="category_id" class="form-label ibm-plex-mono-regular">Selezione Categoria</label>
                         <select class="form-control ibm-plex-mono-regular" id="category_id" name="category_id" required>
@@ -96,7 +96,7 @@
                             @endforeach
                         </select> --}}
 
-                        <label for="category_id" class="form-label ibm-plex-mono-regular">Seleziona Categoria</label>
+                        <label for="category_id" class="form-label ibm-plex-mono-regular">Seleziona Categoria <span class="text-danger">*</span></label>
                         <select class="form-control" id="category_id" name="category_id" required>
                             <option value="" disabled>Seleziona una categoria</option>
                             @foreach ($categories as $category)
@@ -105,7 +105,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        
+
                         @error('category_id')
                             <div class="alert alert-danger">
                                 {{ $message }}</div>
