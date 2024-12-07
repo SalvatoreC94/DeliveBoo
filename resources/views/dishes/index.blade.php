@@ -49,6 +49,13 @@
                     Ordini
                 </a>
 
+                {{-- Link alle statistiche --}}
+                <a href="{{ route('admin.restaurant.statistics', ['restaurant' => $restaurant->id]) }}"
+                    class="button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2 ms-3">
+                    Statistiche
+                </a>
+
+
             </div>
 
             {{-- AGGIUNGI PIATTO --}}
