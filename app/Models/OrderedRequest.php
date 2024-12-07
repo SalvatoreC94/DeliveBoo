@@ -14,7 +14,8 @@ class OrderedRequest extends Model
     protected $fillable = [
         'order_id',
         'dish_id',
-        'quantity'
+        'quantity',
+        'price'
     ];
 
     // Relazione molti a uno con l'ordine

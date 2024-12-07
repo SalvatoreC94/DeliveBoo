@@ -28,7 +28,7 @@ class Order extends Model
     // Relazione molti a molti con i piatti (attraverso la tabella pivot 'ordered_request')
     public function dishes()
     {
-        return $this->belongsToMany(Dish::class, 'ordered_request')->withPivot('quantity');
+        return $this->belongsToMany(Dish::class, 'ordered_request')->withPivot('quantity', 'price');
     }
 
     // Relazione uno a molti con ordered_request

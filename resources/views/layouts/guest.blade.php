@@ -42,7 +42,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">Register</a>
                             </li>
                             <li>
-                                <a href="{{ env('FRONTEND_URL', 'http://localhost:5173') }}"
+                                <a href="{{ env('FRONTEND_URL', 'http://localhost:5174') }}"
                                     class="btn btn-link ms-auto no-underline">
                                     Home
                                 </a>
@@ -54,12 +54,12 @@
         </nav>
     </header>
 
-   
-    
+
+
 
     <!-- Adobe Font - Solo se necessario -->
     <link rel="stylesheet" href="https://use.typekit.net/lyi7tbf.css"> <!-- Rimuovere se non utilizzi questo font -->
-    
+
 
     <!-- Navbar duplicata: probabile errore o codice non necessario -->
     <!-- Questa seconda navbar è simile alla prima, ma è nascosta grazie alla classe d-none. Potresti non aver bisogno di questa seconda navbar -->
@@ -68,8 +68,9 @@
     <header>
         <nav class="navbar shadow navbar-expand-lg d-none">
             <div class="container ">
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
@@ -77,7 +78,8 @@
                         @auth
                             <li class="nav-item">
                                 <!-- Logo in questa navbar non sarà visibile perché la navbar è nascosta con d-none -->
-                                <img class="logo-nav" src="{{ asset('../storage/images/Logo-deliveBoo.svg') }}" alt="">
+                                <img class="logo-nav" src="{{ asset('../storage/images/Logo-deliveBoo.svg') }}"
+                                    alt="">
                             </li>
                         @endauth
                     </ul>
@@ -106,4 +108,5 @@
     </main>
 
 </body>
+
 </html>
