@@ -65,5 +65,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/orders/{order}', [AdminRestaurantController::class, 'showOrder'])->name('orders.show');
 });
 
+Route::get('/restaurant/{restaurant}/statistics', [AdminRestaurantController::class, 'showStatistics'])->name('admin.restaurant.statistics');
+
+
 
 require __DIR__ . '/auth.php';
