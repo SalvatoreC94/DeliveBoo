@@ -16,23 +16,32 @@
         <header class="mb-5">
           <nav class="navbar navbar-expand-lg shadow">
             <div class="container">
-                <a class="" href="/login">
-                  <img class="logo-nav" src="{{ asset('../storage/images/Logo-deliveBoo.svg') }}" alt="logo-deliveBoo">
-                </a>
-                <div class="collapse navbar-collapse d-flex justify-content-end align-items-center" id="navbarText">
-                  <div>
-                    <a href="{{ route('user.profile') }}" class="mx-4 ">
-                      <i class="icon-profile fa-solid fa-user"></i>
-                    </a>
-                  </div>
-                  <form method="POST" action="{{ route('logout') }}">
-                      @csrf
-
-                      <button type="submit" class="logout ibm-plex-mono-regular button-menu mt-2">
-                          Log Out
-                      </button>
-                  </form>
+              <div class="row w-100 d-flex justify-content-between align-items-center">
+                <div class="col-6 col-md-4">
+                  <a class="" href="/login">
+                    <img class="logo-nav" src="/images/Logo-deliveBoo.svg" alt="logo-deliveBoo">
+                  </a>
                 </div>
+
+                <div class="col-6 col-md-4">
+                  <div class="collapse navbar-collapse d-flex justify-content-end align-items-center" id="navbarText">
+                    <div>
+                      <a href="{{ route('user.profile') }}" class="mx-4 ">
+                        <i class="icon-profile fa-solid fa-user"></i>
+                      </a>
+                    </div>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <button type="submit" class="logout ibm-plex-mono-regular button-menu mt-2">
+                            Log Out
+                        </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+                
+                
             </div>
           </nav>
         </header>

@@ -15,98 +15,34 @@
 <body>
     <!-- Navbar principale -->
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="/">Template</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link 2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link 3</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">Register</a>
-                            </li>
-                            <li>
-                                <a href="{{ env('FRONTEND_URL', 'http://localhost:5174') }}"
-                                    class="btn btn-link ms-auto no-underline">
-                                    Home
-                                </a>
-                            </li>
-                        @endauth
-                    </ul>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-expand-md bg-body-tertiary">
+            <div class="container d-flex justify-content-center">
+                <a href="{{ env('FRONTEND_URL', 'http://localhost:5174') }}"
+                    class="">
+                    <img src="/images/logo-deliveBoo.svg" class="logo" alt="deliveBooLogo">
+                </a>
             </div>
         </nav>
     </header>
-
-
-
-
-    <!-- Adobe Font - Solo se necessario -->
-    <link rel="stylesheet" href="https://use.typekit.net/lyi7tbf.css"> <!-- Rimuovere se non utilizzi questo font -->
-
-
-    <!-- Navbar duplicata: probabile errore o codice non necessario -->
-    <!-- Questa seconda navbar è simile alla prima, ma è nascosta grazie alla classe d-none. Potresti non aver bisogno di questa seconda navbar -->
-
-    <!-- Seconda navbar (probabilmente duplicata e nascosta) -->
-    <header>
-        <nav class="navbar shadow navbar-expand-lg d-none">
-            <div class="container ">
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        @auth
-                            <li class="nav-item">
-                                <!-- Logo in questa navbar non sarà visibile perché la navbar è nascosta con d-none -->
-                                <img class="logo-nav" src="{{ asset('../storage/images/Logo-deliveBoo.svg') }}"
-                                    alt="">
-                            </li>
-                        @endauth
-                    </ul>
-
-                    @auth
-                        <!-- Form per il logout -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <button type="submit" class="logout button-menu">
-                                Log Out
-                            </button>
-                        </form>
-                    @endauth
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Fine della seconda navbar -->
 
     <!-- Contenuto principale -->
-    <main class="">
+    <main class="vh-100">
         <div class="container">
-            @yield('main-content') <!-- Qui andranno inseriti i contenuti dinamici della pagina -->
+            @yield('main-content')
         </div>
     </main>
 
 </body>
 
 </html>
+
+
+<style>
+    main{
+        background-image: url('{{ asset('/images/background-pattern-Login.png') }}');
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center;
+        width: 100%;
+    }
+</style>

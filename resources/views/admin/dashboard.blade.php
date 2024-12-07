@@ -19,7 +19,7 @@
     </div>
     
 
-    <div class="dashboard-card">
+    <div class="dashboard-card col-12 col-md-4">
         <div class="row">
             <div class="col-12">
                 <p class="button-title ibm-plex-mono-semibold text-center m-4">
