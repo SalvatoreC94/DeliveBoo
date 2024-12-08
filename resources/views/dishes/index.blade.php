@@ -187,6 +187,13 @@
         border: solid 2px #2f2f2f;
     }
 
+    .card-body {
+        max-height: 200px;
+        /* Limita l'altezza della card per evitare che il testo esca */
+        overflow-y: auto;
+        /* Abilita lo scroll verticale quando il contenuto è troppo grande */
+    }
+
     .dish-card:hover {
         transform: scale(1.05);
         /* Ingrandisce la card al passaggio del mouse */

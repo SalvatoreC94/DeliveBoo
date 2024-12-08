@@ -31,4 +31,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'braintree' => [
+        'environment' => env('BRAINTREE_ENVIRONMENT', 'sandbox'),
+        'merchant_id' => env('6b8mcbdphgfhzbv8'),
+        'public_key' => env('j795rxngdvcjwmqq'),
+        'private_key' => env('76265e2be4f9408ad1788b94cb3b867c'),
+    ],
+
+
 ];
