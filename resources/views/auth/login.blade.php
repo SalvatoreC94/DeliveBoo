@@ -11,9 +11,9 @@
     <section class="vh-100">
             
 
-            <div class="row h-100 d-flex justify-content-between">
+            <div class="row h-100 d-flex align-items-center">
                 <div class="col-12 col-lg-5 col-md-4  d-flex flex-column justify-content-center">
-                    <h2 class="text-center my-title">Esegui il login</h2>
+                    <h2 class="text-center ibm-plex-mono-bold bg-white p-3 rounded">Esegui il login</h2>
                     @if (session('error'))
                         <div class="alert alert-danger">
                             {{ session('error') }}
@@ -125,8 +125,6 @@
         background-color: #fac200;
         border: #2f2f2f solid 1px;
         }
-
-        
 
     </style>
 

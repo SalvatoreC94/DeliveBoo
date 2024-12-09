@@ -8,7 +8,7 @@
 @section('main-content')
 <div class="background-register">
     <div class="container mt-5">
-        <h2 class="mb-4 my-title text-center">Registrazione Ristoratore</h2>
+        <h2 class="mb-4 ibm-plex-mono-bold text-center">Registrazione Ristoratore</h2>
 
         @if (session('success'))
             <div class="alert alert-success mt-3" id="success-message">
@@ -24,7 +24,7 @@
             <div class="row">
 
                 <div class="first-card p-5 me-4 mb-4">
-                    <div class="col-12">
+                    <div class="col-12 p-0">
                         <!-- Nome Utente -->
                         <div class="mb-3">
                             <label for="username" class="form-label ibm-plex-mono-semibold">Nome Utente <span class="text-danger">*</span></label>
@@ -50,7 +50,7 @@
                         </div>
 
                         <!-- Conferma Password -->
-                        <div class="mb-3">
+                        <div class="mb-5">
                             <label for="password_confirmation" class="form-label ibm-plex-mono-semibold">Conferma Password <span
                                     class="text-danger">*</span></label>
                             <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 
-                <div class="second-card row d-flex flex-grow-1  p-5">
+                <div class="second-card row d-flex flex-grow-1 justify-content-center ms-2 p-5 mb-4">
 
                     <div class="col-12 d-flex flex-wrap">
 
@@ -98,7 +98,7 @@
                             <label class="form-label ibm-plex-mono-semibold">Tipologia di Cucina <span class="text-danger">*</span></label>
                             <div id="cuisine_type">
                                 @foreach ($categories as $category)
-                                    <div class="form-check ibm-plex-mono-regular">
+                                    <div class="form-check ibm-plex-mono-regular mb-2">
                                         <input class="form-check-input" type="checkbox" name="cuisine_type[]"
                                             value="{{ $category->id }}" id="category-{{ $category->id }}">
                                         <label class="form-check-label" for="category-{{ $category->id }}">

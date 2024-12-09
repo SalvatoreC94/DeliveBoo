@@ -3,9 +3,11 @@
 @section('page-title', 'Singolo Piatto')
 
 @section('main-content')
-    <div class="container py-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-5">
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card mb-3" style="max-width: 540px;">
 
                     {{-- Visualizzazione del piatto --}}
@@ -34,7 +36,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <a href="{{ route('dishes.edit', ['dish' => $dish->id]) }}" class="btn btn-warning me-2 mb-2">
+                            <a href="{{ route('dishes.edit', ['dish' => $dish->id]) }}" class="button-menu text-decoration-none ibm-plex-mono-regular me-2 mb-2">
                                 Modifica
                             </a>
                         </div>
@@ -43,8 +45,17 @@
             </div>
 
             <div class="mt-4">
-                <a href="{{ route('dishes.index') }}" class="btn btn-success my-1">Torna al menu</a>
+                <a href="{{ route('dishes.index') }}" class="button-menu text-decoration-none ibm-plex-mono-regular my-1">Torna al menu</a>
             </div>
         </div>
     </div>
+</section>
+    
 @endsection
+
+<style>
+    section{
+        background-image: url('{{ asset('/images/background-dish.jpg') }}');
+        background-size: cover;
+    }
+</style>

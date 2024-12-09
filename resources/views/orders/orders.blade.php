@@ -6,12 +6,12 @@
 
 @section('main-content')
     <div class="container mt-5 pt-5">
-        <h1 class="text-center mb-4">Ordini per il ristorante: {{ $restaurant->name }}</h1>
+        <h1 class="text-center ibm-plex-mono-bold mb-4">Ordini del ristorante: {{ $restaurant->name }}</h1>
 
         <!-- Table styling -->
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
+                <thead class="thead-dark ibm-plex-mono-semibold">
                     <tr>
                         <th scope="col">Ordine ID</th>
                         <th scope="col">Data Ordine</th>

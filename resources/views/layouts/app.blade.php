@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <header class="mb-5">
+        <header class="">
           <nav class="navbar navbar-expand-lg shadow">
             <div class="container">
               <div class="row w-100 d-flex justify-content-between align-items-center">
@@ -33,8 +33,11 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <button type="submit" class="logout ibm-plex-mono-regular button-menu mt-2">
+                        <button type="submit" class="d-none d-lg-block d-md-none d-sm-none logout ibm-plex-mono-regular button-menu mt-2">
                             Log Out
+                        </button>
+                        <button type="submit" class="d-lg-none d-md-block logout ibm-plex-mono-regular button-menu mt-2">
+                          <i class="fa-solid fa-right-from-bracket"></i>
                         </button>
                     </form>
                   </div>
@@ -47,7 +50,7 @@
         </header>
 
         <main>
-            <div class="container p-0">
+            <div class="w-100 m-0 p-0">
                 @yield('main-content')
             </div>
         </nav>

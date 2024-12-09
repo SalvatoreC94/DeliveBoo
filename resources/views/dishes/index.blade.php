@@ -5,64 +5,75 @@
 @section('main-content')
     <div class="container py-3">
         <div class="row ">
-            <div class="ibm-plex-mono-bold text-center mb-4">
+            <div class="ibm-plex-mono-bold fs-5 text-center mb-4 mt-3">
                 <h1>Menù</h1>
             </div>
         </div>
 
         {{-- FILTRO PER RICERCA PIATTI ATTIVI/ELIMINATI --}}
         <div class="row mb-2">
-            {{-- Filtro tutti i piatti --}}
-            <div class="col-9">
-                <a href="{{ route('dishes.index', ['filter' => 'all']) }}"
-                    class="button-menu text-decoration-none ibm-plex-mono-regular me-3">
-                    Tutti i Piatti
-                </a>
+            <div class="col-9 dropdown">
+                <button class="button-menu dropdown-toggle ibm-plex-mono-regular" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Cerchi altro?
+                </button>
+                <ul class="dropdown-menu p-4">
 
-                {{-- Filtro piatti Attivi --}}
-                <a href="{{ route('dishes.index', ['filter' => 'active']) }}"
-                    class="button-menu text-decoration-none me-3 ibm-plex-mono-regular position-relative">
-                    Piatti Attivi
-                    {{-- Contatore piatti attiivi --}}
-                    @if ($activeCount > 0)
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ibm-plex-mono-regular">
-                            {{ $activeCount }} </span>
-                    @endif
-                </a>
+                    {{-- Filtro tutti i piatti --}}
+                    <li class="mb-4">
+                        <a href="{{ route('dishes.index', ['filter' => 'all']) }}" class="button-menu text-decoration-none ibm-plex-mono-regular me-3">
+                            Tutti i Piatti
+                        </a>
+                    </li>
 
-                {{-- Filtro Piatti eliminati --}}
-                <a href="{{ route('dishes.index', ['filter' => 'trashed']) }}"
-                    class="button-menu text-decoration-none ibm-plex-mono-regular position-relative">
-                    Piatti Eliminati
-                    {{-- Contatore piatti Eliminati --}}
-                    @if ($trashedCount > 0)
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ibm-plex-mono-regular">{{ $trashedCount }}</span>
-                    @endif
-                </a>
+                    {{-- Filtro piatti Attivi --}}
+                    <li class="mb-4">
+                        <a href="{{ route('dishes.index', ['filter' => 'active']) }}" class="button-menu text-decoration-none me-3 ibm-plex-mono-regular position-relative">
+                            Piatti Attivi
+                            {{-- Contatore piatti attiivi --}}
+                            @if ($activeCount > 0)
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ibm-plex-mono-regular">
+                                    {{ $activeCount }} </span>
+                            @endif
+                        </a>
+                    </li>
 
-                {{-- Filtro Ordini --}}
+                    {{-- Filtro Piatti eliminati --}}
+                    <li class="mb-4">
+                        <a href="{{ route('dishes.index', ['filter' => 'trashed']) }}" class="button-menu text-decoration-none ibm-plex-mono-regular position-relative">
+                            Piatti Eliminati
+                            {{-- Contatore piatti Eliminati --}}
+                            @if ($trashedCount > 0)
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ibm-plex-mono-regular">{{ $trashedCount }}</span>
+                            @endif
+                        </a>
+                    </li>
 
-                <a href="{{ route('admin.restaurant.orders', ['restaurant' => $restaurant->id]) }}"
-                    class="button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2 ms-3">
-                    Ordini
-                </a>
+                    {{-- Filtro Ordini --}}
+                    <li class="mb-4">
+                        <a href="{{ route('admin.restaurant.orders', ['restaurant' => $restaurant->id]) }}" class="button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2">
+                            Ordini
+                        </a>
+                    </li>
 
-                {{-- Link alle statistiche --}}
-                <a href="{{ route('admin.restaurant.statistics', ['restaurant' => $restaurant->id]) }}"
-                    class="button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2 ms-3">
-                    Statistiche
-                </a>
+                    {{-- Link alle statistiche --}}
 
-
+                    <li>
+                        <a href="{{ route('admin.restaurant.statistics', ['restaurant' => $restaurant->id]) }}" class="button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2 ">
+                            Statistiche
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             {{-- AGGIUNGI PIATTO --}}
             <div class="col-3 d-flex justify-content-end">
-                <a href="{{ route('dishes.create') }}"
-                    class="button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2">
+                <a href="{{ route('dishes.create') }}" class="d-none d-lg-block d-md-none d-sm-none button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2">
                     Aggiungi Piatto
+                </a>
+                <a href="{{ route('dishes.create') }}" class="d-lg-none d-md-block button-menu text-decoration-none ibm-plex-mono-regular text-center mb-2">
+                    <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
 
@@ -86,8 +97,8 @@
                             @endif
                         </div>
 
-                        <div class=" ibm-plex-mono-bold-white text-center position-absolute z-1">
-                            <h1> {{ $restaurant->name }} </h1>
+                        <div class="restaurant-name ibm-plex-mono-bold-white position-absolute z-1">
+                            <h1 class="d-flex align-items-center"> {{ $restaurant->name }} </h1>
                         </div>
 
                     </div>
@@ -196,7 +207,6 @@
 
     .dish-card:hover {
         transform: scale(1.05);
-        /* Ingrandisce la card al passaggio del mouse */
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         border: solid 2px #2f2f2f;
 
@@ -219,5 +229,10 @@
         background-image: url(/images/background-pattern.png);
         background-size: contain;
         border: 2px solid #2f2f2f
+    }
+
+    .restaurant-name h1{
+        text-align: center;
+        vertical-align: middle;
     }
 </style>
