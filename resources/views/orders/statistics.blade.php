@@ -4,24 +4,24 @@
 
 @section('main-content')
     <div class="container mt-5 pt-5">
-        <h1 class="text-center mb-4">Statistiche Ordini per il ristorante: {{ $restaurant->name }}</h1>
+        <h1 class="text-center ibm-plex-mono-bold mb-4">Statistiche Ordini per il ristorante: {{ $restaurant->name }}</h1>
 
         <div class="row">
             <!-- Grafico Numero Ordini per Mese (Grafico a Barre) -->
             <div class="col-md-6">
-                <h4>Numero Ordini per Mese</h4>
+                <h4 class="ibm-plex-mono-regular">Numero Ordini per Mese</h4>
                 <canvas id="ordersChart"></canvas>
             </div>
 
             <!-- Grafico Ammontare Vendite per Mese (Grafico a Torta) -->
             <div class="col-md-6">
-                <h4>Ammontare Vendite per Mese</h4>
+                <h4 class="ibm-plex-mono-regular">Ammontare Vendite per Mese</h4>
                 <canvas id="salesChart"></canvas>
             </div>
 
             <!-- Grafico Numero Ordini per Piatto -->
             <div class="col-md-12 mt-5">
-                <h4>Numero Ordini per Piatto</h4>
+                <h4 class="ibm-plex-mono-regular">Numero Ordini per Piatto</h4>
                 <canvas id="dishesOrderChart"></canvas>
             </div>
         </div>
