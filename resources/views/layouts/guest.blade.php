@@ -17,8 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-expand-md bg-body-tertiary">
             <div class="container d-flex justify-content-center">
-                <a href="{{ env('FRONTEND_URL', 'http://localhost:5174') }}"
-                    class="">
+                <a href="{{ env('FRONTEND_URL', 'http://localhost:5173') }}" class="">
                     <img src="/images/logo-deliveBoo.svg" class="logo" alt="deliveBooLogo">
                 </a>
             </div>
@@ -38,7 +37,7 @@
 
 
 <style>
-    main{
+    main {
         background-image: url('{{ asset('/images/background-pattern-Login.png') }}');
         background-size: cover;
         background-repeat: repeat;

@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-// Models
+use Illuminate\Support\Facades\Log;
 use App\Models\{
     Category,
     Dish
@@ -17,41 +17,42 @@ class DishController extends Controller
         $restaurant = $user->restaurant;
 
         if (!$restaurant) {
+            Log::error('Index Dish: Nessun ristorante associato all\'utente');
             return redirect()->route('home')->with('error', 'Non hai un ristorante associato.');
         }
 
-        // Filtra in base alla richiesta
-        if ($request->filter == 'trashed') {
-            $dishes = Dish::onlyTrashed()->where('restaurant_id', $restaurant->id)->get();
-        } elseif ($request->filter == 'all') {
-            $dishes = Dish::withTrashed()->where('restaurant_id', $restaurant->id)->get();
+        $filter = $request->filter;
+        $query = Dish::query()->where('restaurant_id', $restaurant->id);
+
+        if ($filter === 'trashed') {
+            $dishes = $query->onlyTrashed()->get();
+        } elseif ($filter === 'all') {
+            $dishes = $query->withTrashed()->get();
         } else {
-            $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+            $dishes = $query->get();
         }
 
-        // Conta i piatti eliminati
-        $trashedCount = Dish::onlyTrashed()->where('restaurant_id', $restaurant->id)->count();
-        // Conta i piatti Attivi
-        $activeCount = Dish::withTrashed()->where('restaurant_id', $restaurant->id)->count();
-        // Conta tutti i piatti
-        $allCount = Dish::where('restaurant_id', $restaurant->id)->count();
-
+        $trashedCount = $query->onlyTrashed()->count();
+        $activeCount = $query->count();
+        $allCount = $query->withTrashed()->count();
 
         return view('dishes.index', compact('dishes', 'restaurant', 'trashedCount', 'activeCount', 'allCount'));
     }
 
     public function create()
     {
-        // return view('dishes.create', compact('dishes')); // Passa la variabile alla vista
+        $categories = Category::all();
 
-        $dishes = Dish::all(); // Recupera tutti i piatti dal database
-        $categories = Category::all(); // Recupera tutte le categorie
-        return view('dishes.create', compact('dishes', 'categories'));
+        Log::info('Create Dish: Inizializzazione della vista create', [
+            'categories_count' => $categories->count()
+        ]);
+
+        return view('dishes.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
@@ -59,41 +60,57 @@ class DishController extends Controller
             'category_id' => 'required|exists:categories,id',
         ]);
 
+        Log::info('Store Dish: dati ricevuti', $validatedData);
+
         $restaurant = auth()->user()->restaurant;
+
+        if (!$restaurant) {
+            Log::error('Store Dish: Nessun ristorante associato all\'utente');
+            return redirect()->route('home')->with('error', 'Non hai un ristorante associato.');
+        }
 
         $imagePath = $request->file('image')
             ? $request->file('image')->store('dishes', 'public')
             : null;
 
-        // $category = Category::all();
-        Dish::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'image' => $imagePath,
+        Log::info('Store Dish: percorso immagine', ['imagePath' => $imagePath]);
+
+        $dish = Dish::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'price' => $validatedData['price'],
+            'image' => $imagePath ? asset('storage/' . $imagePath) : null,
             'visibility' => $request->has('visibility'),
-            'category_id' => $request->category_id,
+            'category_id' => $validatedData['category_id'],
             'restaurant_id' => $restaurant->id,
         ]);
+
+        Log::info('Store Dish: piatto creato', $dish->toArray());
 
         return redirect()->route('dishes.index')->with('success', 'Piatto creato con successo!');
     }
 
     public function show(Dish $dish)
     {
+        Log::info('Show Dish: Visualizzazione del piatto', ['dish_id' => $dish->id]);
         return view('dishes.show', compact('dish'));
     }
 
     public function edit(Dish $dish)
     {
-        // return view('dishes.edit', compact('dish'));
-        $categories = Category::all(); // Recupera tutte le categorie
+        $categories = Category::all();
+
+        Log::info('Edit Dish: Inizializzazione della vista edit', [
+            'dish_id' => $dish->id,
+            'categories_count' => $categories->count()
+        ]);
+
         return view('dishes.edit', compact('dish', 'categories'));
     }
 
     public function update(Request $request, Dish $dish)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
@@ -101,42 +118,52 @@ class DishController extends Controller
             'category_id' => 'required|exists:categories,id',
         ]);
 
+        Log::info('Update Dish: dati ricevuti', $validatedData);
+
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('dishes', 'public');
-            $dish->image = $imagePath;
+            $dish->image = asset('storage/' . $imagePath);
+
+            Log::info('Update Dish: percorso immagine aggiornato', ['imagePath' => $imagePath]);
         }
 
-        $dish->update($request->only('name', 'description', 'price', 'visibility', 'category_id'));
+        $dish->update([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'price' => $validatedData['price'],
+            'visibility' => $request->has('visibility'),
+            'category_id' => $validatedData['category_id'],
+        ]);
+
+        Log::info('Update Dish: piatto aggiornato', $dish->toArray());
 
         return redirect()->route('dishes.show', ['dish' => $dish->id])->with('success', 'Piatto aggiornato con successo!');
     }
 
     public function destroy(Dish $dish)
     {
+        Log::info('Destroy Dish: eliminazione del piatto', ['dish_id' => $dish->id]);
         $dish->delete();
 
-        return redirect()->route('dishes.index');
+        return redirect()->route('dishes.index')->with('success', 'Piatto eliminato con successo!');
     }
 
-    // Funzione per il Ripristino
     public function restore($id)
     {
-        // Trova il piatto eliminato
         $dish = Dish::onlyTrashed()->findOrFail($id);
-
-        // Ripristina il piatto
         $dish->restore();
+
+        Log::info('Restore Dish: piatto ripristinato', ['dish_id' => $dish->id]);
 
         return redirect()->route('dishes.index')->with('success', 'Piatto ripristinato con successo!');
     }
 
     public function forceDestroy($id)
     {
-        // Trova il piatto eliminato
         $dish = Dish::onlyTrashed()->findOrFail($id);
-
-        // Elimina definitivamente il piatto
         $dish->forceDelete();
+
+        Log::info('Force Destroy Dish: piatto eliminato definitivamente', ['dish_id' => $dish->id]);
 
         return redirect()->route('dishes.index')->with('success', 'Piatto eliminato definitivamente!');
     }

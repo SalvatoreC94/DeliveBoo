@@ -32,7 +32,9 @@ class RestaurantSeeder extends Seeder
             $restaurant->name = $singleRestaurant['name'];
             $restaurant->address = $singleRestaurant['address'];
             $restaurant->partita_iva = $singleRestaurant['partita_iva'];
-            $restaurant->image = $singleRestaurant['image'];
+            $restaurant->image = filter_var($singleRestaurant['image'], FILTER_VALIDATE_URL)
+                ? $singleRestaurant['image']
+                : asset('storage/' . $singleRestaurant['image']);
             $restaurant->user_id = User::inRandomOrder()->first()->id;
             $restaurant->save();
         }

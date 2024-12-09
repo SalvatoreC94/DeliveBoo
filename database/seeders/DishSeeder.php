@@ -44,7 +44,9 @@ class DishSeeder extends Seeder
                         'name' => $dishData['name'],
                         'description' => $dishData['description'],
                         'price' => $dishData['price'],
-                        'image' => $dishData['image'],
+                        'image' => filter_var($dishData['image'], FILTER_VALIDATE_URL)
+                            ? $dishData['image']
+                            : asset('storage/' . $dishData['image']),
                         'visibility' => $dishData['visibility'],
                         'restaurant_id' => $restaurant->id,
                         'category_id' => $category->id, // Associa alla categoria corretta
